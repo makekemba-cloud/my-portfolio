@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <>
       {/* Main Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] py-32">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#000000] pt-20 pb-20">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Gradient blobs */}
@@ -43,7 +43,7 @@ export default function HeroSection() {
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Top Badge */}
-          <div className={`flex justify-center mb-12 transition-all duration-700 transform ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <div className={`flex justify-center mb-8 transition-all duration-700 transform ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 backdrop-blur-sm">
               <div className="w-2 h-2 bg-[#2563EB] rounded-full animate-pulse" />
               <span className="text-sm text-[#9CA3AF] font-medium">Building modern web experiences</span>
@@ -51,7 +51,7 @@ export default function HeroSection() {
           </div>
 
           {/* Main Content - Profile Left (1/4), Content Center-Right (3/4) */}
-          <div className="flex gap-8 items-center mb-16">
+          <div className="flex gap-8 items-center mb-12">
             {/* Left - Profile Picture (1/4 width, hidden on mobile) */}
             <div className={`hidden lg:flex flex-shrink-0 transition-all duration-1000 transform ${
               isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
@@ -63,24 +63,14 @@ export default function HeroSection() {
                 
                 {/* Image container */}
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#2563EB] shadow-2xl shadow-[#2563EB]/50">
-                  {/* Fallback color if image not available */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB] to-[#3B82F6] flex items-center justify-center">
-                    {/* Placeholder until image loads */}
-                    <div className="text-5xl font-bold text-white opacity-30">M</div>
-                  </div>
-                  
-                  {/* Uncomment below when you have profile images in /public folder */}
-                  {/* <Image
-                    src={profileImages[imageIndex]}
+                  {/* Profile Image */}
+                  <Image
+                    src="/images/Screenshot 2026-03-03 101434.png"
                     alt="Profile"
                     fill
-                    className="object-cover transition-opacity duration-1000"
+                    className="object-cover"
                     priority
-                    onError={(e) => {
-                      // Fallback if image doesn't load
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  /> */}
+                  />
                 </div>
               </div>
             </div>

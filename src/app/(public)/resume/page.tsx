@@ -3,14 +3,38 @@
 import Navigation from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useState, useEffect } from 'react';
-import { Download, Briefcase, GraduationCap, Award, Code2, CheckCircle2 } from 'lucide-react';
+import { Download, Briefcase, GraduationCap, Award, Code2, CheckCircle2, ChevronDown } from 'lucide-react';
 
 export default function ResumePage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const roleDocuments = {
+    resume: {
+      label: 'Role-Focused Resumes',
+      roles: [
+        { name: 'Software Developer', file: 'resume-sd.pdf' },
+        { name: 'Data Analyst', file: 'resume-data.pdf' },
+        { name: 'Cybersecurity', file: 'resume-cyber.pdf' },
+        { name: 'Technician', file: 'resume-tech.pdf' },
+        { name: 'Project Manager', file: 'resume-pm.pdf' },
+      ],
+    },
+    cv: {
+      label: 'Role-Focused CVs',
+      roles: [
+        { name: 'Software Developer', file: 'cv-sd.pdf' },
+        { name: 'Data Analyst', file: 'cv-data.pdf' },
+        { name: 'Cybersecurity', file: 'cv-cyber.pdf' },
+        { name: 'Technician', file: 'cv-tech.pdf' },
+        { name: 'Project Manager', file: 'cv-pm.pdf' },
+      ],
+    },
+  };
 
   const workExperience = [
     {
@@ -82,31 +106,103 @@ export default function ResumePage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Resume</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Resume & CV</h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
-            Experienced fullstack developer with a proven track record of building secure, scalable web applications
+            Download my comprehensive resume or CV, or select a role-focused version
           </p>
         </div>
       </section>
 
       {/* Download Section */}
-      <section className="relative bg-[#000000] py-8 border-b border-[#111827]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#2563EB] text-white rounded-lg font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30"
-            >
-              <Download size={20} />
-              Download PDF Resume
-            </a>
-            <button
-              onClick={() => window.print()}
-              className="inline-flex items-center gap-3 px-8 py-4 border-2 border-[#2563EB] text-[#2563EB] rounded-lg font-semibold hover:bg-[#2563EB]/10 transition-all duration-300"
-            >
-              Print Resume
-            </button>
+      <section className="relative bg-[#000000] py-12 border-b border-[#111827]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Title */}
+          <p className="text-[#9CA3AF] text-sm mb-8 text-center">Download my comprehensive resume and CV, or select a role-focused version</p>
+
+          {/* Single Line Layout */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
+            {/* Main Downloads - Center */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white rounded-lg font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30 hover:shadow-[#2563EB]/50 whitespace-nowrap"
+              >
+                <Download size={18} />
+                Resume
+              </a>
+
+              <a
+                href="/cv.pdf"
+                download
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[#2563EB] text-[#2563EB] rounded-lg font-semibold hover:bg-[#2563EB]/10 transition-all duration-300 whitespace-nowrap"
+              >
+                <Download size={18} />
+                CV
+              </a>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px h-12 bg-[#111827]" />
+
+            {/* Role-Focused Dropdowns - Right */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* Resume by Role */}
+              <div className="relative">
+                <button
+                  onClick={() => setOpenDropdown(openDropdown === 'resume' ? null : 'resume')}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B0F1A] border border-[#111827] text-[#F9FAFB] rounded-lg text-sm font-medium hover:border-[#2563EB]/50 transition-all duration-300"
+                >
+                  <span>Resume</span>
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${openDropdown === 'resume' ? 'rotate-180' : ''}`} />
+                </button>
+
+                {openDropdown === 'resume' && (
+                  <div className="absolute top-full right-0 mt-2 w-56 bg-[#0B0F1A] border border-[#111827] rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-10">
+                    {roleDocuments.resume.roles.map((role, index) => (
+                      <a
+                        key={index}
+                        href={`/${role.file}`}
+                        download
+                        className={`block px-4 py-2 text-[#F9FAFB] hover:bg-[#111827] transition-all duration-200 text-sm ${
+                          index !== roleDocuments.resume.roles.length - 1 ? 'border-b border-[#111827]/50' : ''
+                        }`}
+                      >
+                        {role.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* CV by Role */}
+              <div className="relative">
+                <button
+                  onClick={() => setOpenDropdown(openDropdown === 'cv' ? null : 'cv')}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B0F1A] border border-[#111827] text-[#F9FAFB] rounded-lg text-sm font-medium hover:border-[#2563EB]/50 transition-all duration-300"
+                >
+                  <span>CV</span>
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${openDropdown === 'cv' ? 'rotate-180' : ''}`} />
+                </button>
+
+                {openDropdown === 'cv' && (
+                  <div className="absolute top-full right-0 mt-2 w-56 bg-[#0B0F1A] border border-[#111827] rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-10">
+                    {roleDocuments.cv.roles.map((role, index) => (
+                      <a
+                        key={index}
+                        href={`/${role.file}`}
+                        download
+                        className={`block px-4 py-2 text-[#F9FAFB] hover:bg-[#111827] transition-all duration-200 text-sm ${
+                          index !== roleDocuments.cv.roles.length - 1 ? 'border-b border-[#111827]/50' : ''
+                        }`}
+                      >
+                        {role.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -252,7 +348,14 @@ export default function ResumePage() {
             <h3 className="text-2xl font-bold text-[#F9FAFB] mb-4">Interested in working together?</h3>
             <p className="text-[#9CA3AF] mb-8">Get in touch to discuss your project or opportunities</p>
             <a
-              href="/contact"
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const contactElement = document.getElementById('contact');
+                if (contactElement) {
+                  contactElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#2563EB] text-white rounded-lg font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30"
             >
               Get in Touch

@@ -28,13 +28,6 @@ export default function AboutSection() {
     },
   ];
 
-  const handleScrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="about" className="relative bg-[#000000] py-28 sm:py-36 border-b border-[#111827] overflow-hidden">
       {/* Background Elements */}
@@ -44,15 +37,18 @@ export default function AboutSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+         <div className="flex justify-center mb-6">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5">
+                <div className="w-2 h-2 bg-[#2563EB] rounded-full" />
+                <span className="text-sm text-[#2563EB] font-semibold">About Me</span>
+              </div>
+            </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className={`transition-all duration-1000 transform ${
             isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-          }`}>
-            <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5">
-              <div className="w-2 h-2 bg-[#2563EB] rounded-full" />
-              <span className="text-sm text-[#2563EB] font-semibold">Let Me Introduce Myself</span>
-            </div>
+          } flex flex-col items-center lg:items-start text-center lg:text-left`}>
+           
 
             <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-8 leading-tight">
               Passionate About Building Better Web
@@ -66,21 +62,7 @@ export default function AboutSection() {
               My approach combines technical excellence with a keen eye for design and user experience. Whether building from scratch or optimizing existing systems, I bring a methodical, security-first mindset to every project.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-center">
-              <button
-                onClick={handleScrollToContact}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-[#2563EB] text-white rounded-lg font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30"
-              >
-                Let's Talk
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-              <a
-                href="/resume"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-[#111827] text-[#F9FAFB] rounded-lg font-semibold hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300"
-              >
-                View Resume
-              </a>
-            </div>
+            
           </div>
 
           {/* Right Content - Stats Cards */}
@@ -108,6 +90,21 @@ export default function AboutSection() {
             })}
           </div>
         </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#2563EB] text-white rounded-lg font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30"
+              >
+                Let's Talk
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
+              <a
+                href="/resume"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#111827] text-[#F9FAFB] rounded-lg font-semibold hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300"
+              >
+                View Resume
+              </a>
+            </div>
       </div>
     </section>
   );

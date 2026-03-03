@@ -255,7 +255,7 @@ export default function Navbar() {
                   Resume
                 </Link>
                 <Link
-                  href="/admin/login"
+                  href="/login"
                   onClick={() => setMobileOpen(false)}
                   className="px-4 py-3 text-sm font-medium text-center text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-all duration-300"
                 >
