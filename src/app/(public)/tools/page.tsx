@@ -67,7 +67,10 @@ export default function ToolsPage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Tools & Technologies</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">Tools & </span>
+            <span className="text-[#2563EB]">Technologies</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
             The tools and technologies I use in my daily development workflow
           </p>
@@ -77,9 +80,18 @@ export default function ToolsPage() {
       {/* Tools Grid */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="space-y-20">
             {toolCategories.map((category, catIndex) => {
               const Icon = category.icon;
+              // Handle category names with last word in blue
+              let firstPart = category.category;
+              let lastWord = '';
+              const words = category.category.split(' ');
+              if (words.length > 1) {
+                lastWord = words[words.length - 1];
+                firstPart = words.slice(0, -1).join(' ') + ' ';
+              }
+
               return (
                 <div
                   key={catIndex}
@@ -88,11 +100,30 @@ export default function ToolsPage() {
                   }`}
                   style={{ transitionDelay: isLoaded ? `${catIndex * 100}ms` : '0ms' }}
                 >
+                  {/* Divider Line */}
+                  {catIndex > 0 && (
+                    <div className="flex items-center gap-4 mb-12">
+                      <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+                    </div>
+                  )}
+
+                  {/* Category Badge */}
+                  <div className="flex justify-center mb-8">
+                    <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                      <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                      <span className="text-sm text-[#2563EB] font-semibold">{category.category}</span>
+                    </div>
+                  </div>
+
+                  {/* Category Heading with Blue Last Word */}
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-lg bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
                       <Icon className="text-[#3B82F6]" size={24} />
                     </div>
-                    <h2 className="text-3xl font-bold text-[#F9FAFB]">{category.category}</h2>
+                    <h2 className="text-3xl font-bold">
+                      <span className="text-[#F9FAFB]">{firstPart}</span>
+                      {lastWord && <span className="text-[#2563EB]">{lastWord}</span>}
+                    </h2>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

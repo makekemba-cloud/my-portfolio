@@ -15,26 +15,26 @@ export default function AchievementsPage() {
   const achievements = [
     {
       icon: Trophy,
-      title: 'Top Performer',
-      description: 'Consistently recognized for excellence in fullstack development and project delivery',
-      year: '2023-2024',
+      title: 'Advanced Diploma Achieved',
+      description: 'Successfully completed Advanced Diploma in Information Technology from Nelson Mandela University',
+      year: '2025',
     },
     {
       icon: Award,
-      title: 'Security Certifications',
-      description: 'Certified in OWASP security practices and secure coding standards',
-      year: '2023',
+      title: 'Cisco Certified',
+      description: 'Obtained two professional certifications: CCNAv7 and Introduction to Cybersecurity from Cisco Networking Academy',
+      year: '2022-2023',
     },
     {
       icon: Star,
-      title: '50+ Projects Delivered',
-      description: 'Successfully completed and deployed 50+ production applications',
+      title: 'Full Stack Development Expertise',
+      description: 'Mastered full-stack development with expertise in React, Next.js, Node.js, ASP.NET, and multiple databases',
       year: '2024',
     },
     {
       icon: Zap,
-      title: 'Performance Expert',
-      description: 'Consistently achieve 98%+ Lighthouse scores and sub-2s load times',
+      title: 'Security & Performance Specialist',
+      description: 'Specialized in web security, cybersecurity fundamentals, and application performance optimization',
       year: '2023-2024',
     },
   ];
@@ -51,7 +51,9 @@ export default function AchievementsPage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Achievements</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">Achievements</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
             Recognitions and milestones earned through dedication to excellence
           </p>
@@ -61,6 +63,14 @@ export default function AchievementsPage() {
       {/* Achievements Grid */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Badge */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+              <span className="text-sm text-[#2563EB] font-semibold">Key Achievements</span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon;

@@ -55,7 +55,10 @@ export default function ArchitecturePage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">System Architecture</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">System </span>
+            <span className="text-[#2563EB]">Architecture</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
             Scalable, secure, and performant architecture for modern web applications
           </p>
@@ -65,9 +68,18 @@ export default function ArchitecturePage() {
       {/* Architecture Stack */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
+          <div className="space-y-16">
             {architectureLayers.map((item, index) => {
               const Icon = item.icon;
+              // Handle layer names with last word in blue
+              let firstPart = item.layer;
+              let lastWord = '';
+              const words = item.layer.split(' ');
+              if (words.length > 1) {
+                lastWord = words[words.length - 1];
+                firstPart = words.slice(0, -1).join(' ') + ' ';
+              }
+
               return (
                 <div
                   key={index}
@@ -76,15 +88,33 @@ export default function ArchitecturePage() {
                   }`}
                   style={{ transitionDelay: isLoaded ? `${index * 100}ms` : '0ms' }}
                 >
+                  {/* Divider Line */}
+                  {index > 0 && (
+                    <div className="flex items-center gap-4 mb-12">
+                      <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+                    </div>
+                  )}
+
+                  {/* Layer Badge */}
+                  <div className="flex justify-center mb-8">
+                    <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                      <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                      <span className="text-sm text-[#2563EB] font-semibold">{item.layer}</span>
+                    </div>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     {/* Left side - Layer info */}
                     <div className="order-2 md:order-1">
                       <div className="p-8 rounded-xl border border-[#111827] bg-[#0B0F1A]/40 hover:border-[#2563EB]/50 transition-all duration-300">
                         <div className="flex items-center gap-4 mb-4">
-                          <div className="w-14 h-14 rounded-xl bg-[#2563EB]/10 flex items-center justify-center">
+                          <div className="w-14 h-14 rounded-xl bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
                             <Icon className="text-[#3B82F6]" size={28} />
                           </div>
-                          <h3 className="text-2xl font-bold text-[#F9FAFB]">{item.layer}</h3>
+                          <h3 className="text-2xl font-bold">
+                            <span className="text-[#F9FAFB]">{firstPart}</span>
+                            {lastWord && <span className="text-[#2563EB]">{lastWord}</span>}
+                          </h3>
                         </div>
                         <p className="text-[#9CA3AF] mb-6">{item.description}</p>
 

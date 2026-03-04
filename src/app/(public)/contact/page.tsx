@@ -3,7 +3,7 @@
 import Navigation from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useState, useEffect } from 'react';
-import { Mail, Linkedin, Github, Twitter, ArrowRight, Send, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Linkedin, Github, Twitter, ArrowRight, Send, Phone, MapPin, Clock, MessageCircle, Facebook, Instagram } from 'lucide-react';
 
 export default function ContactPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,19 +46,19 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'your-email@example.com',
-      href: 'mailto:your-email@example.com',
+      value: 'makekembav@gmail.com',
+      href: 'mailto:makekembav@gmail.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+27 72 947 3009',
+      href: 'tel:+27729473009',
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Your City, Country',
+      value: 'Masia, Limpopo, South Africa',
       href: '#',
     },
     {
@@ -70,10 +70,13 @@ export default function ContactPage() {
   ];
 
   const socialLinks = [
-    { name: 'Email', icon: Mail, href: 'mailto:your-email@example.com' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { name: 'GitHub', icon: Github, href: 'https://github.com' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
+    { name: 'Email', icon: Mail, href: 'mailto:makekembav@gmail.com', color: 'hover:text-red-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/makekemba-vhutali', color: 'hover:text-blue-500' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/makekemba-cloud', color: 'hover:text-gray-400' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/Makekembavhutal', color: 'hover:text-sky-500' },
+    { name: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/27729473009', color: 'hover:text-green-500' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/Mmuso.0', color: 'hover:text-blue-600' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/mmuso.0/', color: 'hover:text-pink-500' },
   ];
 
   return (
@@ -88,7 +91,10 @@ export default function ContactPage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Get In Touch</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">Get In </span>
+            <span className="text-[#2563EB]">Touch</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how I can help bring your ideas to life.
           </p>
@@ -98,6 +104,13 @@ export default function ContactPage() {
       {/* Contact Info Cards */}
       <section className="relative bg-[#000000] py-20 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+              <span className="text-sm text-[#2563EB] font-semibold">Contact Information</span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
@@ -123,12 +136,28 @@ export default function ContactPage() {
       {/* Contact Form & Info */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Divider Line */}
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+          </div>
+
+          {/* Section Badge */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+              <span className="text-sm text-[#2563EB] font-semibold">Send Message</span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             {/* Contact Form */}
             <div className={`transition-all duration-1000 transform ${
               isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
             }`}>
-              <h2 className="text-3xl font-bold text-[#F9FAFB] mb-8">Send me a message</h2>
+              <h2 className="text-3xl font-bold mb-6">
+                <span className="text-[#F9FAFB]">Send me a </span>
+                <span className="text-[#2563EB]">message</span>
+              </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
@@ -245,7 +274,10 @@ export default function ContactPage() {
             <div className={`transition-all duration-1000 delay-200 transform ${
               isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}>
-              <h2 className="text-3xl font-bold text-[#F9FAFB] mb-8">Let's Connect</h2>
+              <h2 className="text-3xl font-bold mb-8">
+                <span className="text-[#F9FAFB]">Let's </span>
+                <span className="text-[#2563EB]">Connect</span>
+              </h2>
 
               <p className="text-lg text-[#9CA3AF] mb-12 leading-relaxed">
                 I'm always interested in hearing about new projects and opportunities. Whether you have a specific project in mind or just want to chat about potential collaboration, feel free to reach out!
@@ -254,7 +286,7 @@ export default function ContactPage() {
               {/* Social Links */}
               <div className="mb-12">
                 <h3 className="text-xl font-bold text-[#F9FAFB] mb-6">Follow Me</h3>
-                <div className="flex gap-4">
+                <div className="grid grid-cols-4 gap-3">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
                     return (
@@ -263,10 +295,10 @@ export default function ContactPage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-4 rounded-lg border border-[#111827] text-[#9CA3AF] hover:text-[#2563EB] hover:border-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300"
+                        className={`p-4 rounded-lg border border-[#111827] text-[#9CA3AF] hover:border-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300 flex items-center justify-center ${social.color}`}
                         title={social.name}
                       >
-                        <Icon size={28} />
+                        <Icon size={24} />
                       </a>
                     );
                   })}
@@ -281,6 +313,41 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Maps Section */}
+      <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Divider Line */}
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+          </div>
+
+          {/* Section Badge */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+              <span className="text-sm text-[#2563EB] font-semibold">Maps Location</span>
+            </div>
+          </div>
+
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            <span className="text-[#F9FAFB]">Find Me </span>
+            <span className="text-[#2563EB]">Here</span>
+          </h2>
+          
+          <div className="rounded-lg border border-[#111827] overflow-hidden h-96 w-full">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.9946888039303!2d30.30841997509711!3d-23.18999477905678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec5d31484f30f49%3A0xf221773a72793c82!2s341%20Makekemba!5e1!3m2!1sen!2sza!4v1772526723007!5m2!1sen!2sza"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>

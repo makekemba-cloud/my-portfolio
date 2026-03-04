@@ -44,7 +44,7 @@ export default function HeroSection() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Top Badge */}
           <div className={`flex justify-center mb-8 transition-all duration-700 transform ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 backdrop-blur-sm cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(37,99,235,0.45)]">
               <div className="w-2 h-2 bg-[#2563EB] rounded-full animate-pulse" />
               <span className="text-sm text-[#9CA3AF] font-medium">Building modern web experiences</span>
             </div>
@@ -79,7 +79,7 @@ export default function HeroSection() {
             <div className="flex-1 text-center">
               {/* Main Headline */}
               <div className={`mb-6 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_30px_rgba(37,99,235,0.5)]">
                   <span className="block text-[#F9FAFB] mb-3">Fullstack Developer</span>
                   <span className="block bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent">Crafting Secure Web Solutions</span>
                 </h1>
@@ -112,7 +112,7 @@ export default function HeroSection() {
               {/* Social Links */}
               <div className={`flex justify-center gap-5 transition-all duration-1000 delay-400 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/makekemba-cloud"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg border border-[#111827] text-[#9CA3AF] hover:text-[#2563EB] hover:border-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300"
@@ -121,7 +121,7 @@ export default function HeroSection() {
                   <Github size={22} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/in/makekemba-vhutali"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg border border-[#111827] text-[#9CA3AF] hover:text-[#2563EB] hover:border-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300"
@@ -135,7 +135,7 @@ export default function HeroSection() {
 
           {/* Scroll Indicator */}
           <div className={`flex justify-center transition-opacity duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col items-center gap-3 cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">
               <span className="text-xs text-[#9CA3AF] uppercase tracking-widest font-medium">Scroll</span>
               <div className="w-6 h-10 border-2 border-[#111827] rounded-full flex items-center justify-center">
                 <div className="w-1.5 h-2.5 bg-[#2563EB] rounded-full animate-bounce" />

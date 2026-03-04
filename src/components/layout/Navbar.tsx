@@ -114,13 +114,10 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleScrollToSection('hero')}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-2 group cursor-pointer transition-colors duration-300"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-[#2563EB] to-[#3B82F6] rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#2563EB]/20">
-              <span className="text-white font-bold text-lg">M</span>
-            </div>
             <span className="text-[#F9FAFB] font-bold text-base hidden sm:inline">
-              Makekemba
+               <span className="text-[#2563EB]">Makekemba Vhutali</span>
             </span>
           </button>
 
@@ -147,11 +144,11 @@ export default function Navbar() {
             <div className="relative" ref={moreRef}>
               <button
                 onClick={() => setMoreOpen(!moreOpen)}
-                className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 group ${
+                className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 px-4 py-2 rounded-lg ${
                   moreOpen
-                    ? 'text-[#2563EB]'
-                    : 'text-[#9CA3AF] hover:text-[#F9FAFB]'
-                }`}
+                    ? 'text-[#2563EB] bg-[#2563EB]/10 border border-[#2563EB]/30'
+                    : 'text-[#9CA3AF] hover:text-[#F9FAFB] border border-transparent hover:border-[#2563EB]/30 hover:bg-[#2563EB]/5'
+                } hover:shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-all`}
               >
                 More
                 <ChevronDown 
@@ -162,16 +159,16 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {moreOpen && (
-                <div className="absolute top-full right-0 mt-2 w-56 bg-[#0B0F1A] border border-[#111827] rounded-xl shadow-2xl shadow-black/50 py-2">
+                <div className="absolute top-full right-0 mt-2 w-56 bg-[#0B0F1A] border border-[#111827] rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-10">
                   {moreLinks.map((link, index) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setMoreOpen(false)}
-                      className={`block px-4 py-3 text-sm transition-all duration-200 hover:bg-[#111827] ${
+                      className={`block px-4 py-3 text-sm transition-all duration-200 hover:bg-[#111827] hover:border-l-2 hover:border-l-[#2563EB] hover:text-[#2563EB] ${
                         pathname === link.href || pathname.startsWith(link.href)
-                          ? 'text-[#2563EB] bg-[#111827]'
-                          : 'text-[#9CA3AF] hover:text-[#F9FAFB]'
+                          ? 'text-[#2563EB] bg-[#111827] border-l-2 border-l-[#2563EB]'
+                          : 'text-[#9CA3AF]'
                       } ${index !== moreLinks.length - 1 ? 'border-b border-[#111827]/50' : ''}`}
                     >
                       {link.name}
@@ -186,13 +183,13 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/resume"
-              className="px-4 py-2 text-sm font-medium text-[#9CA3AF] border border-[#111827] rounded-lg hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300"
+              className="px-4 py-2 text-sm font-medium text-[#9CA3AF] border border-[#111827] rounded-lg hover:border-[#2563EB] hover:text-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300 hover:shadow-[0_0_15px_rgba(37,99,235,0.3)]"
             >
               Resume
             </Link>
             <Link
               href="/admin/login"
-              className="px-4 py-2 text-sm font-medium text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/20 hover:shadow-[#2563EB]/40"
+              className="px-4 py-2 text-sm font-medium text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30 hover:shadow-[#2563EB]/50"
             >
               Admin
             </Link>
@@ -218,7 +215,7 @@ export default function Navbar() {
                   onClick={() => handleScrollToSection(link.id)}
                   className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 text-left cursor-pointer ${
                     isActive(link.id)
-                      ? 'text-[#2563EB] bg-[#111827]'
+                      ? 'text-[#2563EB] bg-[#111827] border-l-2 border-l-[#2563EB]'
                       : 'text-[#9CA3AF] hover:text-[#F9FAFB] hover:bg-[#111827]'
                   }`}
                 >
@@ -236,7 +233,7 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 block ${
                       pathname === link.href || pathname.startsWith(link.href)
-                        ? 'text-[#2563EB] bg-[#111827]'
+                        ? 'text-[#2563EB] bg-[#111827] border-l-2 border-l-[#2563EB]'
                         : 'text-[#9CA3AF] hover:text-[#F9FAFB] hover:bg-[#111827]'
                     }`}
                   >
@@ -250,14 +247,14 @@ export default function Navbar() {
                 <Link
                   href="/resume"
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-center text-[#9CA3AF] border border-[#111827] rounded-lg hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300"
+                  className="px-4 py-3 text-sm font-medium text-center text-[#9CA3AF] border border-[#111827] rounded-lg hover:border-[#2563EB] hover:text-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300 hover:shadow-[0_0_15px_rgba(37,99,235,0.3)]"
                 >
                   Resume
                 </Link>
                 <Link
-                  href="/login"
+                  href="/admin/login"
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-center text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-all duration-300"
+                  className="px-4 py-3 text-sm font-medium text-center text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30 hover:shadow-[#2563EB]/50"
                 >
                   Admin
                 </Link>

@@ -13,25 +13,36 @@ export default function ResumePage() {
     setIsLoaded(true);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('[data-dropdown]')) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
   const roleDocuments = {
     resume: {
       label: 'Role-Focused Resumes',
       roles: [
-        { name: 'Software Developer', file: 'resume-sd.pdf' },
-        { name: 'Data Analyst', file: 'resume-data.pdf' },
-        { name: 'Cybersecurity', file: 'resume-cyber.pdf' },
-        { name: 'Technician', file: 'resume-tech.pdf' },
-        { name: 'Project Manager', file: 'resume-pm.pdf' },
+        { name: 'Junior Software Developer', file: 'Resume_Makekemba_Vhutali_Junior_Software_Developer.pdf' },
+        { name: 'Data Analyst', file: 'Resume_Makekemba_Vhutali_Data_Analyst.pdf' },
+        { name: 'Cybersecurity', file: 'Resume_Makekemba_Vhutali_Cyber-Security.pdf' },
+        { name: 'IT Technician', file: 'Resume_Makekemba_Vhutali_IT_Technician.pdf' },
       ],
     },
     cv: {
       label: 'Role-Focused CVs',
       roles: [
-        { name: 'Software Developer', file: 'cv-sd.pdf' },
-        { name: 'Data Analyst', file: 'cv-data.pdf' },
-        { name: 'Cybersecurity', file: 'cv-cyber.pdf' },
-        { name: 'Technician', file: 'cv-tech.pdf' },
-        { name: 'Project Manager', file: 'cv-pm.pdf' },
+        { name: 'Junior Software Developer', file: 'Makekemba_Vhutali_Junior_Software_Developer_CV.pdf' },
+        { name: 'Data Analyst', file: 'Makekemba_Vhutali_Data_Analyst_CV.pdf' },
+        { name: 'Cybersecurity', file: 'Makekemba_Vhutali_Cyber-Security_CV.pdf' },
+        { name: 'IT Technician', file: 'Makekemba_Vhutali_IT_Technician_CV.pdf' },
       ],
     },
   };
@@ -74,24 +85,24 @@ export default function ResumePage() {
 
   const education = [
     {
-      degree: 'Bachelor of Science in Computer Science',
-      institution: 'University Name',
-      period: '2018 - 2022',
-      highlights: ['First Class Honors', "Dean's List", 'Scholarship Recipient'],
+      degree: 'Advanced Diploma in Information Technology',
+      institution: 'Nelson Mandela University',
+      period: '2025 - 2025',
+      highlights: ['ASP.NET', 'JavaScript', 'Project Management', 'Cyber Security'],
     },
     {
-      degree: 'Advanced Web Development Certification',
-      institution: 'Online Platform',
-      period: '2022 - 2023',
-      highlights: ['Full Stack Track', '500+ Hours', 'Project-Based Learning'],
+      degree: 'Diploma in Information Technology',
+      institution: 'Nelson Mandela University',
+      period: '2022 - 2024',
+      highlights: ['Full Stack Development', 'Web Development', 'Database Management'],
     },
   ];
 
   const skills = {
     'Frontend': ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'HTML/CSS'],
-    'Backend': ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs'],
-    'Tools & DevOps': ['Git', 'Docker', 'AWS', 'Vercel', 'GitHub Actions', 'Linux'],
-    'Security': ['JWT Auth', 'OWASP', 'Encryption', 'RLS & RBAC', 'SQL Prevention', 'CORS'],
+    'Backend': ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'C#', 'ASP.NET'],
+    'Tools & DevOps': ['Git', 'Docker', 'AWS', 'Vercel', 'GitHub', 'Linux'],
+    'Security': ['JWT Auth', 'OWASP', 'Encryption', 'RLS & RBAC', 'SQL Prevention', 'Network Security'],
   };
 
   return (
@@ -106,9 +117,12 @@ export default function ResumePage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Resume & CV</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">Resume & </span>
+            <span className="text-[#2563EB]">CV</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
-            Download my comprehensive resume or CV, or select a role-focused version
+            Download my comprehensive resume or CV, or select a role-focused version tailored to your needs
           </p>
         </div>
       </section>
@@ -124,7 +138,7 @@ export default function ResumePage() {
             {/* Main Downloads - Center */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="/resume.pdf"
+                href="/Resume-Makekemba Vhutali.pdf"
                 download
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] text-white rounded-lg font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30 hover:shadow-[#2563EB]/50 whitespace-nowrap"
               >
@@ -133,7 +147,7 @@ export default function ResumePage() {
               </a>
 
               <a
-                href="/cv.pdf"
+                href="/Carriculum Vitae-Makekemba Vhutali.pdf"
                 download
                 className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[#2563EB] text-[#2563EB] rounded-lg font-semibold hover:bg-[#2563EB]/10 transition-all duration-300 whitespace-nowrap"
               >
@@ -148,7 +162,7 @@ export default function ResumePage() {
             {/* Role-Focused Dropdowns - Right */}
             <div className="flex flex-col sm:flex-row gap-3">
               {/* Resume by Role */}
-              <div className="relative">
+              <div className="relative" data-dropdown>
                 <button
                   onClick={() => setOpenDropdown(openDropdown === 'resume' ? null : 'resume')}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B0F1A] border border-[#111827] text-[#F9FAFB] rounded-lg text-sm font-medium hover:border-[#2563EB]/50 transition-all duration-300"
@@ -176,7 +190,7 @@ export default function ResumePage() {
               </div>
 
               {/* CV by Role */}
-              <div className="relative">
+              <div className="relative" data-dropdown>
                 <button
                   onClick={() => setOpenDropdown(openDropdown === 'cv' ? null : 'cv')}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B0F1A] border border-[#111827] text-[#F9FAFB] rounded-lg text-sm font-medium hover:border-[#2563EB]/50 transition-all duration-300"
@@ -214,12 +228,21 @@ export default function ResumePage() {
           <div className={`transition-all duration-1000 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            <h2 className="text-3xl font-bold text-[#F9FAFB] mb-6">Professional Summary</h2>
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                <span className="text-sm text-[#2563EB] font-semibold">Professional Overview</span>
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold mb-6">
+              <span className="text-[#F9FAFB]">Professional </span>
+              <span className="text-[#2563EB]">Summary</span>
+            </h2>
             <p className="text-lg text-[#9CA3AF] leading-relaxed">
-              Dedicated fullstack developer with 4+ years of experience building secure, scalable, and performant web applications. 
-              Proven expertise in modern frontend frameworks and backend technologies, with a strong focus on security best practices 
-              and user experience. Passionate about clean code, continuous learning, and mentoring junior developers. Specialized in 
-              architecting microservices, optimizing performance, and implementing enterprise-grade security measures.
+              Dedicated fullstack developer with expertise in modern web technologies and a strong focus on security best practices. 
+              Experienced in building scalable applications using React, Next.js, Node.js, and ASP.NET. Proficient in database management 
+              with PostgreSQL and SQL Server. Passionate about clean code, continuous learning, and delivering high-quality solutions. 
+              Specialized in full-stack development, web security, and cybersecurity fundamentals.
             </p>
           </div>
 
@@ -227,9 +250,24 @@ export default function ResumePage() {
           <div className={`transition-all duration-1000 delay-100 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
+            {/* Divider Line */}
+            <div className="flex items-center gap-4 mb-12">
+              <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+            </div>
+
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                <span className="text-sm text-[#2563EB] font-semibold">Work Experience</span>
+              </div>
+            </div>
+
             <div className="flex items-center gap-3 mb-8">
               <Briefcase className="text-[#2563EB]" size={28} />
-              <h2 className="text-3xl font-bold text-[#F9FAFB]">Work Experience</h2>
+              <h2 className="text-3xl font-bold">
+                <span className="text-[#F9FAFB]">Work </span>
+                <span className="text-[#2563EB]">Experience</span>
+              </h2>
             </div>
 
             <div className="space-y-8">
@@ -260,9 +298,23 @@ export default function ResumePage() {
           <div className={`transition-all duration-1000 delay-200 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
+            {/* Divider Line */}
+            <div className="flex items-center gap-4 mb-12">
+              <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+            </div>
+
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                <span className="text-sm text-[#2563EB] font-semibold">Education</span>
+              </div>
+            </div>
+
             <div className="flex items-center gap-3 mb-8">
               <GraduationCap className="text-[#2563EB]" size={28} />
-              <h2 className="text-3xl font-bold text-[#F9FAFB]">Education</h2>
+              <h2 className="text-3xl font-bold">
+                <span className="text-[#F9FAFB]">Education</span>
+              </h2>
             </div>
 
             <div className="space-y-6">
@@ -294,9 +346,23 @@ export default function ResumePage() {
           <div className={`transition-all duration-1000 delay-300 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
+            {/* Divider Line */}
+            <div className="flex items-center gap-4 mb-12">
+              <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+            </div>
+
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                <span className="text-sm text-[#2563EB] font-semibold">Technical Skills</span>
+              </div>
+            </div>
+
             <div className="flex items-center gap-3 mb-8">
               <Code2 className="text-[#2563EB]" size={28} />
-              <h2 className="text-3xl font-bold text-[#F9FAFB]">Skills</h2>
+              <h2 className="text-3xl font-bold">
+                <span className="text-[#F9FAFB]">Skills</span>
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -322,17 +388,32 @@ export default function ResumePage() {
           <div className={`transition-all duration-1000 delay-400 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
+            {/* Divider Line */}
+            <div className="flex items-center gap-4 mb-12">
+              <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+            </div>
+
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                <span className="text-sm text-[#2563EB] font-semibold">Certifications</span>
+              </div>
+            </div>
+
             <div className="flex items-center gap-3 mb-8">
               <Award className="text-[#2563EB]" size={28} />
-              <h2 className="text-3xl font-bold text-[#F9FAFB]">Certifications & Awards</h2>
+              <h2 className="text-3xl font-bold">
+                <span className="text-[#F9FAFB]">Certifications & </span>
+                <span className="text-[#2563EB]">Awards</span>
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { title: 'AWS Solutions Architect', issuer: 'Amazon Web Services', year: '2024' },
-                { title: 'OWASP Security Certified', issuer: 'OWASP Foundation', year: '2023' },
-                { title: 'Top Developer Award', issuer: 'Tech Company Inc.', year: '2023' },
-                { title: 'Performance Excellence', issuer: 'Digital Solutions LLC', year: '2022' },
+                { title: 'CCNAv7: Introduction to Networks', issuer: 'Cisco Networking Academy', year: '2023' },
+                { title: 'Introduction to Cybersecurity', issuer: 'Cisco Networking Academy', year: '2022' },
+                { title: 'Advanced Diploma in IT', issuer: 'Nelson Mandela University', year: '2025' },
+                { title: 'Diploma in Information Technology', issuer: 'Nelson Mandela University', year: '2024' },
               ].map((cert, index) => (
                 <div key={index} className="p-6 rounded-lg border border-[#111827] bg-[#0B0F1A]/40 hover:border-[#2563EB]/50 transition-all duration-300">
                   <h4 className="text-lg font-bold text-[#F9FAFB] mb-2">{cert.title}</h4>

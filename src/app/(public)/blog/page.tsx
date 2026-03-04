@@ -75,7 +75,9 @@ export default function BlogPage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Blog</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">Blog</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
             Articles, tutorials, and insights on web development and technology
           </p>
@@ -85,6 +87,20 @@ export default function BlogPage() {
       {/* Blog Grid */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Badge */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+              <span className="text-sm text-[#2563EB] font-semibold">Latest Articles</span>
+            </div>
+          </div>
+
+          {/* Section Heading */}
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            <span className="text-[#F9FAFB]">Featured </span>
+            <span className="text-[#2563EB]">Posts</span>
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <div

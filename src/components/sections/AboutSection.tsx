@@ -38,11 +38,11 @@ export default function AboutSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
          <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5">
-                <div className="w-2 h-2 bg-[#2563EB] rounded-full" />
-                <span className="text-sm text-[#2563EB] font-semibold">About Me</span>
-              </div>
-            </div>
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+            <div className="w-2 h-2 bg-[#2563EB] rounded-full animate-pulse" />
+            <span className="text-sm text-[#2563EB] font-semibold">About Me</span>
+          </div>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className={`transition-all duration-1000 transform ${
@@ -50,12 +50,13 @@ export default function AboutSection() {
           } flex flex-col items-center lg:items-start text-center lg:text-left`}>
            
 
-            <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-8 leading-tight">
-              Passionate About Building Better Web
-            </h2>
+            <h2 className="text-5xl sm:text-6xl font-bold mb-8 leading-tight ">
+          <span className="block text-[#F9FAFB]">Passionate About</span>
+          <span className="block bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent">Building Better Web</span>
+        </h2>
 
             <p className="text-lg text-[#9CA3AF] mb-6 leading-relaxed">
-              I'm a fullstack developer with a deep passion for creating secure, performant, and user-centric web applications. With expertise across the entire stack, I transform ideas into robust digital solutions.
+              I'm a fullstack developer with a deep passion for creating secure, performant, modern, and user-centric web applications. With expertise across the entire stack, I transform ideas into robust digital solutions.
             </p>
 
             <p className="text-lg text-[#9CA3AF] mb-12 leading-relaxed">

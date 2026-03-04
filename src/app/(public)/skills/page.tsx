@@ -13,59 +13,125 @@ export default function SkillsPage() {
 
   const skillCategories = [
     {
-      category: 'Frontend',
-      description: 'Building beautiful, interactive user interfaces',
-      skills: [
-        { name: 'React', level: 95 },
-        { name: 'Next.js', level: 95 },
-        { name: 'TypeScript', level: 92 },
-        { name: 'Tailwind CSS', level: 94 },
-        { name: 'JavaScript', level: 96 },
-        { name: 'HTML/CSS', level: 98 },
-        { name: 'Framer Motion', level: 85 },
-        { name: 'Redux/Context', level: 90 },
+      category: 'Programming & Web Development',
+      description: 'Full-stack development with modern and traditional technologies',
+      subcategories: [
+        {
+          name: 'Backend Languages & Frameworks',
+          skills: ['C#', 'ASP.NET', 'ASP.NET Core', 'Python', 'Java', 'Node.js', 'Express', 'PHP'],
+        },
+        {
+          name: 'Frontend Languages & Frameworks',
+          skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'jQuery', 'HTML/CSS', 'Tailwind CSS', 'Bootstrap'],
+        },
+        {
+          name: 'Databases & ORM',
+          skills: ['SQL', 'PostgreSQL', 'SQL Server', 'MongoDB', 'Entity Framework', 'Dapper', 'Prisma'],
+        },
+        {
+          name: 'APIs & Protocols',
+          skills: ['REST APIs', 'GraphQL', 'WebSockets'],
+        },
       ],
     },
     {
-      category: 'Backend',
-      description: 'Creating robust, scalable server-side applications',
-      skills: [
-        { name: 'Node.js', level: 92 },
-        { name: 'Express', level: 90 },
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'MongoDB', level: 85 },
-        { name: 'REST APIs', level: 94 },
-        { name: 'GraphQL', level: 80 },
-        { name: 'Prisma', level: 88 },
-        { name: 'Supabase', level: 90 },
+      category: 'Data Analysis & Science',
+      description: 'Data processing, analysis, and visualization techniques',
+      subcategories: [
+        {
+          name: 'Languages & Libraries',
+          skills: ['Python', 'Pandas', 'NumPy'],
+        },
+        {
+          name: 'Tools & Environments',
+          skills: ['Anaconda', 'Jupyter Notebook'],
+        },
+        {
+          name: 'Analysis Techniques',
+          skills: ['Data Cleaning', 'Exploratory Data Analysis (EDA)'],
+        },
+      ],
+    },
+    {
+      category: 'Cybersecurity & Ethical Testing',
+      description: 'Security testing and penetration testing fundamentals',
+      subcategories: [
+        {
+          name: 'Tools & Platforms',
+          skills: ['Kali Linux', 'Aircrack-ng'],
+        },
+        {
+          name: 'Testing & Vulnerabilities',
+          skills: ['SQL Injection Testing', 'MITM Attacks', 'Website/Application Vulnerability Testing', 'Penetration Testing Basics'],
+        },
+        {
+          name: 'Security Principles',
+          skills: ['Network Security Fundamentals', 'Information Security Principles', 'OWASP Security', 'Data Encryption', 'SSL/TLS'],
+        },
+        {
+          name: 'Authentication & Authorization',
+          skills: ['JWT Authentication', 'OAuth', 'RBAC & RLS', 'Input Validation'],
+        },
+      ],
+    },
+    {
+      category: 'Project Management',
+      description: 'Managing projects with industry-standard methodologies',
+      subcategories: [
+        {
+          name: 'Methodologies',
+          skills: ['Agile Methodologies', 'Scrum', 'SDLC', 'Project Planning'],
+        },
+        {
+          name: 'Documentation & Planning',
+          skills: ['Documentation', 'Risk Management Techniques'],
+        },
+        {
+          name: 'Microsoft Office Suite',
+          skills: ['Microsoft Word', 'Microsoft Excel', 'Microsoft PowerPoint', 'Microsoft Access', 'Microsoft Teams'],
+        },
       ],
     },
     {
       category: 'Tools & Platforms',
-      description: 'Leveraging modern tools for efficient development',
-      skills: [
-        { name: 'Git/GitHub', level: 95 },
-        { name: 'Docker', level: 85 },
-        { name: 'AWS', level: 82 },
-        { name: 'Vercel', level: 94 },
-        { name: 'Supabase', level: 90 },
-        { name: 'Firebase', level: 88 },
-        { name: 'Linux', level: 85 },
-        { name: 'CI/CD', level: 87 },
+      description: 'Development and deployment tools',
+      subcategories: [
+        {
+          name: 'IDEs & Editors',
+          skills: ['Visual Studio', 'VS Code', 'SQL Server Management Studio'],
+        },
+        {
+          name: 'Version Control & Collaboration',
+          skills: ['GitHub', 'Git'],
+        },
+        {
+          name: 'Cloud & Deployment',
+          skills: ['AWS', 'Vercel', 'Supabase', 'Firebase', 'Docker', 'CI/CD'],
+        },
+        {
+          name: 'Utilities & Development Tools',
+          skills: ['Kali Linux', 'Linux', 'Postman', 'npm'],
+        },
       ],
     },
     {
-      category: 'Security & Best Practices',
-      description: 'Implementing industry-standard security practices',
-      skills: [
-        { name: 'JWT Authentication', level: 92 },
-        { name: 'OWASP Security', level: 88 },
-        { name: 'Data Encryption', level: 85 },
-        { name: 'SQL Injection Prevention', level: 92 },
-        { name: 'CORS & Headers', level: 90 },
-        { name: 'Testing (Jest/Cypress)', level: 85 },
-        { name: 'RBAC & RLS', level: 88 },
-        { name: 'SSL/TLS', level: 87 },
+      category: 'Soft Skills',
+      description: 'Professional and interpersonal competencies',
+      subcategories: [
+        {
+          name: 'Core Competencies',
+          skills: ['Leadership', 'Planning', 'Supervision', 'Teamwork', 'Problem Solving', 'Communication'],
+        },
+      ],
+    },
+    {
+      category: 'Languages',
+      description: 'Languages proficiency and communication abilities',
+      subcategories: [
+        {
+          name: 'Fluent Languages',
+          skills: ['English', 'Xitsonga', 'Tshivenda'],
+        },
       ],
     },
   ];
@@ -82,7 +148,10 @@ export default function SkillsPage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">Skills & Expertise</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-6">
+            <span className="text-[#F9FAFB]">Skills & </span>
+            <span className="bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent">Expertise</span>
+          </h1>
           <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
             A comprehensive set of tools and technologies to bring your vision to life
           </p>
@@ -93,7 +162,27 @@ export default function SkillsPage() {
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-20">
-            {skillCategories.map((category, categoryIndex) => (
+            {skillCategories.map((category, categoryIndex) => {
+              // Handle both "&" and single word categories
+              let firstPart = category.category;
+              let lastWord = '';
+              
+              if (category.category.includes('&')) {
+                const categoryWords = category.category.split('&');
+                lastWord = categoryWords[1].trim();
+                firstPart = categoryWords[0].trim() + ' & ';
+              } else {
+                // For single word categories like "Project Management"
+                const words = category.category.split(' ');
+                if (words.length > 1) {
+                  lastWord = words[words.length - 1];
+                  firstPart = words.slice(0, -1).join(' ') + ' ';
+                } else {
+                  firstPart = category.category;
+                }
+              }
+              
+              return (
               <div
                 key={categoryIndex}
                 className={`transition-all duration-1000 transform ${
@@ -101,34 +190,56 @@ export default function SkillsPage() {
                 }`}
                 style={{ transitionDelay: isLoaded ? `${categoryIndex * 100}ms` : '0ms' }}
               >
-                <div className="mb-12">
-                  <h2 className="text-4xl font-bold text-[#F9FAFB] mb-3">{category.category}</h2>
+                {/* Divider Line */}
+                {categoryIndex > 0 && (
+                  <div className="flex items-center gap-4 mb-12">
+                    <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+                  </div>
+                )}
+
+                {/* Category Badge */}
+                <div className="flex justify-center mb-8">
+                  <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                    <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
+                    <span className="text-sm text-[#2563EB] font-semibold">{category.category}</span>
+                  </div>
+                </div>
+
+                {/* Category Heading with Blue Last Word */}
+                <div className="mb-4">
+                  <h2 className="text-4xl font-bold mb-3">
+                    <span className="text-[#F9FAFB]">{firstPart}</span>
+                    {lastWord && (
+                      <span className="bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent">{lastWord}</span>
+                    )}
+                  </h2>
                   <p className="text-lg text-[#9CA3AF]">{category.description}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="group">
-                      <div className="p-6 rounded-xl border border-[#111827] bg-[#0B0F1A]/40 hover:border-[#2563EB]/50 transition-all duration-300">
-                        <div className="flex justify-between items-center mb-4">
-                          <span className="text-[#F9FAFB] font-semibold">{skill.name}</span>
-                          <span className="text-sm text-[#2563EB] font-bold">{skill.level}%</span>
-                        </div>
-                        <div className="w-full h-2.5 bg-[#111827] rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-[#2563EB] to-[#3B82F6] rounded-full transition-all duration-1000 ease-out"
-                            style={{
-                              width: isLoaded ? `${skill.level}%` : '0%',
-                              transitionDelay: isLoaded ? `${(categoryIndex * 100) + (skillIndex * 30)}ms` : '0ms',
-                            }}
-                          />
-                        </div>
+                {/* Subcategories */}
+                <div className="space-y-10">
+                  {category.subcategories.map((subcategory, subIndex) => (
+                    <div key={subIndex}>
+                      <h3 className="text-xl font-semibold text-[#E5E7EB] mb-4">{subcategory.name}</h3>
+                      <div className="flex flex-wrap gap-4">
+                        {subcategory.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className={`px-5 py-3 text-sm rounded-full border border-[#2563EB]/40 bg-[#0B0F1A]/60 text-[#3B82F6] font-medium hover:border-[#2563EB] hover:bg-[#2563EB]/20 transition-all duration-300 transform ${
+                              isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                            }`}
+                            style={{ transitionDelay: isLoaded ? `${(categoryIndex * 100) + (subIndex * 50) + (skillIndex * 15)}ms` : '0ms' }}
+                          >
+                            {skill}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
@@ -142,7 +253,7 @@ export default function SkillsPage() {
           </p>
           <a
             href="/projects"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg border-2 border-[#2563EB] text-[#2563EB] font-semibold hover:bg-[#2563EB] hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30 hover:shadow-[#2563EB]/50"
           >
             View My Projects
           </a>

@@ -43,12 +43,12 @@ export default function ContactSection() {
 
   const socialLinks = [
     { name: 'Email', icon: Mail, href: 'mailto:makekembav@gmail.com', color: 'hover:text-red-500' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: 'hover:text-blue-500' },
-    { name: 'GitHub', icon: Github, href: 'https://github.com', color: 'hover:text-gray-400' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com', color: 'hover:text-sky-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/makekemba-vhutali', color: 'hover:text-blue-500' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/makekemba-cloud', color: 'hover:text-gray-400' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/Makekembavhutal', color: 'hover:text-sky-500' },
     { name: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/27729473009', color: 'hover:text-green-500' },
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com', color: 'hover:text-blue-600' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-500' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/Mmuso.0', color: 'hover:text-blue-600' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/mmuso.0/', color: 'hover:text-pink-500' },
   ];
 
   return (

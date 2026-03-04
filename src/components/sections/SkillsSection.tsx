@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Globe, Smartphone, Database, Cloud, Lock, Palette, Wrench } from 'lucide-react';
+import { Globe, Database, Cloud, Lock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function SkillsSection() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,37 +15,17 @@ export default function SkillsSection() {
     {
       icon: Globe,
       category: 'Web Development',
-      skills: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'ASP.NET Core', 'C#', 'Node.js', 'REST APIs', 'Vite'],
-    },
-    {
-      icon: Smartphone,
-      category: 'Mobile Development',
-      skills: ['React (Mobile-ready)', 'Responsive Web', 'PWA Concepts', 'API-driven Backend', 'Supabase Auth'],
+      skills: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'REST APIs'],
     },
     {
       icon: Database,
-      category: 'Database Management',
-      skills: ['PostgreSQL', 'SQL Server', 'Supabase DB', 'Stored Procedures', 'Indexes', 'ERD Design'],
+      category: 'Database & Backend',
+      skills: ['PostgreSQL', 'Supabase', 'SQL Server', 'C#', 'ASP.NET Core', 'PHP'],
     },
     {
       icon: Cloud,
-      category: 'Cloud & Hosting',
-      skills: ['Supabase', 'Vercel', 'GitHub'],
-    },
-    {
-      icon: Lock,
-      category: 'Auth & Security',
-      skills: ['Supabase Auth', 'OAuth', 'Row Level Security', 'Role-based Access', 'Input Validation', 'JWT'],
-    },
-    {
-      icon: Palette,
-      category: 'UI/UX Design',
-      skills: ['Figma', 'Responsive Layouts', 'Dashboards', 'Forms & Validation', 'User-Centered Design'],
-    },
-    {
-      icon: Wrench,
-      category: 'Dev Tools',
-      skills: ['VS Code', 'Visual Studio', 'Git', 'GitHub', 'Postman', 'npm', 'ESLint'],
+      category: 'Cloud & Security',
+      skills: ['Vercel', 'GitHub', 'OAuth', 'JWT', 'Row Level Security'],
     },
   ];
 
@@ -59,8 +40,8 @@ export default function SkillsSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5">
-            <div className="w-2 h-2 bg-[#2563EB] rounded-full" />
+          <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+            <div className="w-2 h-2 bg-[#2563EB] rounded-full animate-pulse" />
             <span className="text-sm text-[#2563EB] font-semibold">Technical Skills</span>
           </div>
           <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-6">Skills & Expertise</h2>
@@ -70,7 +51,7 @@ export default function SkillsSection() {
         </div>
 
         {/* Skills Grid - Category Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => {
             const Icon = category.icon;
             return (
@@ -108,14 +89,15 @@ export default function SkillsSection() {
           })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA with View More Button */}
         <div className="mt-20 pt-12 border-t border-[#111827] text-center">
-          <p className="text-[#9CA3AF] text-lg mb-6">Want to see these skills in action?</p>
+          <p className="text-[#9CA3AF] text-lg mb-6">Want to see more skills and detailed expertise?</p>
           <a
-            href="#projects"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg border-2 border-[#2563EB] text-[#2563EB] font-semibold hover:bg-[#2563EB] hover:text-white transition-all duration-300"
+            href="/skills"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30 hover:shadow-[#2563EB]/50 group"
           >
-            Check Out Projects
+            View All Skills
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </div>
       </div>
