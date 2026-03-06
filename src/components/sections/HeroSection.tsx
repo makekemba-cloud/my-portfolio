@@ -12,12 +12,18 @@ export default function HeroSection() {
     setIsLoaded(true);
   }, []);
 
-  const handleScrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+ const handleScrollToSection = (sectionId: string) => {
+  if (sectionId === 'hero') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const navbarHeight = 64;
+    const elementTop = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+    window.scrollTo({ top: elementTop, behavior: 'smooth' });
+  }
+};
 
   return (
     <>

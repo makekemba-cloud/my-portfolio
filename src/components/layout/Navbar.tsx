@@ -11,7 +11,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
   const moreRef = useRef<HTMLDivElement>(null);
 
-  // Main navigation links - scroll to sections
   const mainLinks = [
     { name: 'Home', id: 'hero' },
     { name: 'About', id: 'about' },
@@ -20,7 +19,6 @@ export default function Navbar() {
     { name: 'Contact', id: 'contact' },
   ];
 
-  // Dropdown "More" links - actual pages
   const moreLinks = [
     { name: 'Blog', href: '/blog' },
     { name: 'Education', href: '/education' },
@@ -30,67 +28,72 @@ export default function Navbar() {
     { name: 'Tools', href: '/tools' },
   ];
 
-  // Handle scroll to section
   const handleScrollToSection = (sectionId: string) => {
-    // If not on home page, navigate to home first
     if (pathname !== '/') {
       window.location.href = `/#${sectionId}`;
       return;
     }
 
-    // Scroll to section
-    const element = document.getElementById(sectionId);
+    if (sectionId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setActiveSection('hero');
+      setMobileOpen(false);
+      return;
+    }
+
+   const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const isDesktop = window.innerWidth >= 1024;
+      const navbarHeight = isDesktop ? 0 : 999;
+      const elementTop = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      window.scrollTo({ top: elementTop, behavior: 'smooth' });
       setActiveSection(sectionId);
     }
 
     setMobileOpen(false);
   };
 
-  const isActive = (id: string) => {
-    return activeSection === id;
-  };
+  const isActive = (id: string) => activeSection === id;
 
-  // Track which section is in view using scroll listener (more reliable)
-  useEffect(() => {
-    if (pathname !== '/') {
-      setActiveSection('');
+ useEffect(() => {
+  if (pathname !== '/') {
+    setActiveSection('');
+    return;
+  }
+
+  const sectionIds = ['hero', 'about', 'skills', 'projects', 'contact'];
+
+  const handleScroll = () => {
+    if (window.scrollY < 50) {
+      setActiveSection('hero');
       return;
     }
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+    // Find the section whose top is closest to the top of the viewport
+    let closestSection = 'hero';
+    let closestDistance = Infinity;
 
-      // Find which section is currently in view
-      let currentSection = 'hero';
-
-      mainLinks.forEach((link) => {
-        const element = document.getElementById(link.id);
-        if (element) {
-          const elementTop = element.offsetTop;
-          const elementBottom = elementTop + element.offsetHeight;
-
-          // Check if scroll position is within this section
-          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-            currentSection = link.id;
-          }
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestSection = id;
         }
-      });
+      }
+    });
 
-      setActiveSection(currentSection);
-    };
+    setActiveSection(closestSection);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
-    handleScroll();
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [pathname, mainLinks]);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, [pathname]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (moreRef.current && !moreRef.current.contains(event.target as Node)) {
@@ -102,7 +105,6 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Don't show navbar on admin routes
   if (pathname.startsWith('/admin')) {
     return null;
   }
@@ -116,8 +118,8 @@ export default function Navbar() {
             onClick={() => handleScrollToSection('hero')}
             className="flex items-center gap-2 group cursor-pointer transition-colors duration-300"
           >
-            <span className="text-[#F9FAFB] font-bold text-base hidden sm:inline">
-               <span className="text-[#2563EB]">Makekemba Vhutali</span>
+            <span className="text-[#F9FAFB] font-bold text-base">
+              <span className="text-[#2563EB]">Makekemba Vhutali</span>
             </span>
           </button>
 
@@ -151,13 +153,12 @@ export default function Navbar() {
                 } hover:shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-all`}
               >
                 More
-                <ChevronDown 
-                  size={16} 
+                <ChevronDown
+                  size={16}
                   className={`transition-transform duration-300 ${moreOpen ? 'rotate-180' : ''}`}
                 />
               </button>
 
-              {/* Dropdown Menu */}
               {moreOpen && (
                 <div className="absolute top-full right-0 mt-2 w-56 bg-[#0B0F1A] border border-[#111827] rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-10">
                   {moreLinks.map((link, index) => (
