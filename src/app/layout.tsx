@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Makekemba Vhutali | Fullstack Developer",
   description: "Fullstack developer specializing in secure, modern web applications. Security-focused, SaaS enthusiast.",
   keywords: ["fullstack", "developer", "react", "nextjs", "typescript", "security"],
+  icons: {
+    icon: '/images/Image Mar 6, 2026, 08_02_24 PM.png',  // 👈 add this
+  },
 };
 
 export default function RootLayout({
