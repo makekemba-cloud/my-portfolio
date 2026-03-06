@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, Github, ExternalLink } from 'lucide-react';
+import { ArrowRight, Github, ExternalLink, Wrench } from 'lucide-react';
 
 export default function ProjectsSection() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -11,29 +11,36 @@ export default function ProjectsSection() {
   }, []);
 
   const projects = [
+    
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-featured e-commerce solution with secure payments, inventory management, and real-time order tracking. Built with a focus on performance and user experience.',
-      technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Tailwind CSS'],
-      image: 'bg-gradient-to-br from-[#2563EB]/20 to-[#3B82F6]/20',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: 'BigSmallInsights',
+      description:
+        'A student support platform connecting learners with mentors, tutors, and structured resources. Features Google OAuth, role-based access control, Sentry error monitoring, and custom activity logging.',
+      technologies: ['Next.js', 'TypeScript', 'Supabase', 'Google OAuth', 'Sentry'],
+      image: '/images/Screenshot 2026-03-06 155732.png',
+      github: null,
+      live: 'https://www.bigsmallinsights.co.za/',
+      inProduction: false,
     },
     {
-      title: 'Security Audit Tool',
-      description: 'Automated security scanning platform that identifies vulnerabilities in web applications. Includes detailed reporting and remediation suggestions.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Chart.js'],
-      image: 'bg-gradient-to-br from-[#f59e0b]/20 to-[#fbbf24]/20',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: 'Developer Portfolio',
+      description:
+        'A modern, responsive portfolio built with Next.js to showcase projects, technical skills, and development experience. Features animated project cards, dynamic filtering, and sections for blogs and mini apps.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+      image: '/images/Screenshot 2026-03-06 155706.png',
+      github: 'https://github.com/makekemba-cloud',
+      live: 'https://makekembav-portfolio.vercel.app/',
+      inProduction: false,
     },
     {
-      title: 'Real-time Analytics Dashboard',
-      description: 'Live data visualization dashboard for monitoring application metrics. Features real-time updates, custom charts, and exportable reports.',
-      technologies: ['Next.js', 'WebSockets', 'PostgreSQL', 'D3.js', 'Supabase'],
-      image: 'bg-gradient-to-br from-[#10b981]/20 to-[#34d399]/20',
-      github: 'https://github.com',
-      live: 'https://example.com',
+      title: 'SNAC Member System',
+      description:
+        'A full-stack athletic club management platform with member registration, admin approvals, role-based access control, and athlete profiles. Built with Supabase RLS enforced at the database layer — not just the UI.',
+      technologies: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
+      image: '/images/Screenshot 2026-03-06 155837.png',
+      github: null,
+      live: 'https://sibalekananiac.co.za',
+      inProduction: true,
     },
   ];
 
@@ -51,7 +58,7 @@ export default function ProjectsSection() {
             <div className="w-2 h-2 bg-[#2563EB] rounded-full" />
             <span className="text-sm text-[#2563EB] font-semibold">Featured Work</span>
           </div>
-          <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-6">Recent Projects</h2>
+          <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-6">Recent <span className="text-[#2563EB]">Projects</span></h2>
           <p className="text-lg text-[#9CA3AF] max-w-2xl mx-auto">
             A selection of projects showcasing my expertise in fullstack development
           </p>
@@ -68,7 +75,27 @@ export default function ProjectsSection() {
               style={{ transitionDelay: isLoaded ? `${index * 100}ms` : '0ms' }}
             >
               {/* Project Image */}
-              <div className={`h-48 ${project.image} group-hover:opacity-80 transition-opacity duration-300`} />
+              <div className="h-48 overflow-hidden bg-[#0B0F1A] relative">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Under Production banner */}
+                {project.inProduction && (
+                  <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 py-2 px-4 bg-[#f59e0b] backdrop-blur-sm">
+                    <span className="relative flex h-2 w-2 shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#000]/40 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#000]/60" />
+                    </span>
+                    <Wrench size={12} className="text-[#000000] shrink-0" />
+                    <span className="text-[#000000] text-xs font-bold tracking-widest uppercase">
+                      Currently in Production
+                    </span>
+                    <Wrench size={12} className="text-[#000000] shrink-0" />
+                  </div>
+                )}
+              </div>
 
               {/* Project Content */}
               <div className="p-8 flex flex-col flex-grow">
@@ -89,15 +116,17 @@ export default function ProjectsSection() {
 
                 {/* Links */}
                 <div className="flex gap-3 pt-4 border-t border-[#111827]">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-[#111827] text-[#9CA3AF] hover:text-[#2563EB] hover:border-[#2563EB] transition-all duration-300"
-                    title="GitHub Repository"
-                  >
-                    <Github size={18} />
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-[#111827] text-[#9CA3AF] hover:text-[#2563EB] hover:border-[#2563EB] transition-all duration-300"
+                      title="GitHub Repository"
+                    >
+                      <Github size={18} />
+                    </a>
+                  )}
                   <a
                     href={project.live}
                     target="_blank"

@@ -19,7 +19,7 @@ export default function ToolsPage() {
       tools: [
         { name: 'VS Code', description: 'Primary code editor', link: '#' },
         { name: 'Git', description: 'Version control system', link: '#' },
-        { name: 'Docker', description: 'Containerization platform', link: '#' },
+        { name: 'visual studio', description: 'Code editor', link: '#' },
         { name: 'Postman', description: 'API testing tool', link: '#' },
       ],
     },
@@ -28,31 +28,26 @@ export default function ToolsPage() {
       icon: Database,
       tools: [
         { name: 'PostgreSQL', description: 'Primary database', link: '#' },
-        { name: 'MongoDB', description: 'NoSQL database', link: '#' },
-        { name: 'DBeaver', description: 'Database client', link: '#' },
-        { name: 'Redis', description: 'Caching layer', link: '#' },
+        { name: 'SQL Server', description: 'Relational database', link: '#' },
       ],
     },
     {
       category: 'Performance Tools',
       icon: Zap,
       tools: [
-        { name: 'Lighthouse', description: 'Performance auditing', link: '#' },
-        { name: 'WebPageTest', description: 'Speed testing', link: '#' },
-        { name: 'New Relic', description: 'Application monitoring', link: '#' },
         { name: 'Sentry', description: 'Error tracking', link: '#' },
       ],
     },
-    {
-      category: 'Deployment Tools',
-      icon: Wrench,
-      tools: [
-        { name: 'Vercel', description: 'Frontend deployment', link: '#' },
-        { name: 'AWS', description: 'Cloud infrastructure', link: '#' },
-        { name: 'GitHub Actions', description: 'CI/CD pipeline', link: '#' },
-        { name: 'Netlify', description: 'Hosting platform', link: '#' },
-      ],
-    },
+   {
+  category: 'Deployment & CI/CD Tools',
+  icon: Wrench,
+  tools: [
+    { name: 'Vercel', description: 'Frontend deployment and hosting for the main platform', link: '#' },
+    { name: 'Azure DevOps', description: 'CI/CD pipeline, repository management, and project automation for subprojects', link: '#' },
+    { name: 'GitHub Actions', description: 'Automated workflows for testing and deployment', link: '#' },
+    { name: 'IIS (Microsoft)', description: 'Hosting the pharmacy sub project on a Windows web server', link: 'https://soit-iis.mandela.ac.za/grp-04-10/' },
+  ],
+},
   ];
 
   return (

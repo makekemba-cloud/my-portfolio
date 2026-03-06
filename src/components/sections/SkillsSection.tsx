@@ -44,7 +44,7 @@ export default function SkillsSection() {
             <div className="w-2 h-2 bg-[#2563EB] rounded-full animate-pulse" />
             <span className="text-sm text-[#2563EB] font-semibold">Technical Skills</span>
           </div>
-          <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-6">Skills & Expertise</h2>
+         <h2 className="text-5xl sm:text-6xl font-bold text-[#F9FAFB] mb-6">Skills & <span className="text-[#2563EB]">Expertise</span></h2>
           <p className="text-lg text-[#9CA3AF] max-w-2xl mx-auto">
             A comprehensive set of tools and technologies to bring your vision to life
           </p>

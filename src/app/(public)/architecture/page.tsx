@@ -30,17 +30,17 @@ export default function ArchitecturePage() {
     {
       icon: Database,
       layer: 'Database Layer',
-      description: 'PostgreSQL and MongoDB databases with optimized queries and indexing.',
-      technologies: ['PostgreSQL', 'MongoDB', 'Prisma', 'Redis', 'Indexing'],
+      description: 'PostgreSQL databases with optimized queries and indexing.',
+      technologies: ['PostgreSQL', 'Indexing'],
       features: ['Query Optimization', 'Connection Pooling', 'Backup Strategy', 'Monitoring'],
     },
     {
-      icon: Lock,
-      layer: 'Security Layer',
-      description: 'JWT authentication, encryption, and security best practices implemented.',
-      technologies: ['JWT Auth', 'Encryption', 'CORS', 'HTTPS', 'OWASP'],
-      features: ['Input Validation', 'SQL Injection Prevention', 'XSS Protection', 'CSRF Tokens'],
-    },
+  icon: Lock,
+  layer: 'Security & Access Control',
+  description: 'Secure authentication with Google OAuth and Supabase, role-based access control via middleware, and activity logging for monitoring user actions.',
+  technologies: ['Google OAuth', 'Supabase Auth', 'RBAC Middleware', 'Sentry', 'HTTPS'],
+  features: ['Role-Based Access Control', 'Protected Routes', 'Activity Logging', 'Real-Time Error Monitoring'],
+},
   ];
 
   return (
