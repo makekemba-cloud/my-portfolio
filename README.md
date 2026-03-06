@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio
+
+This is my personal developer portfolio built with **Next.js, TypeScript, and Tailwind CSS**.  
+The goal of this project is to showcase my work, projects, and experiments while also serving as a platform where I can continue adding new content as I grow as a developer.
+
+🌐 **Live Website:**  
+https://makekembav-portfolio.vercel.app/
+
+---
+
+## Features
+
+- Modern responsive design
+- Dynamic project showcase with filtering
+- Animated project cards with GitHub and live demo links
+- Blog section
+- Mini Apps and development experiments
+- Security Lab section
+- Contact form for collaboration or opportunities
+- Custom 404 page with interactive animations
+
+---
+
+## Tech Stack
+
+- **Next.js 14 (App Router)**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Lucide React Icons**
+- **Vercel** for deployment
+
+---
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally:
 
 ```bash
+git clone https://github.com/makekemba-cloud/my-portfolio.git
+
+cd your-repo-name
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Purpose of the Project
 
-## Learn More
+This portfolio was built to:
 
-To learn more about Next.js, take a look at the following resources:
+- Showcase real projects I have developed
+- Practice modern full-stack development workflows
+- Build reusable components and improve UI/UX
+- Maintain a central place to document my development journey
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
+**Makekemba Vhutali**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+GitHub: https://github.com/makekemba-cloud  
+Portfolio: https://makekembav-portfolio.vercel.app/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## License
+
+This project is open source and available under the MIT License.
