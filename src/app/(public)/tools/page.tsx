@@ -3,7 +3,7 @@
 import Navigation from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useState, useEffect } from 'react';
-import { Wrench, Code2, Database, Zap, ExternalLink } from 'lucide-react';
+import { Wrench, Code2, Database, Zap, ExternalLink, Shield, Cloud } from 'lucide-react';
 
 export default function ToolsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,37 +17,73 @@ export default function ToolsPage() {
       category: 'Development Tools',
       icon: Code2,
       tools: [
-        { name: 'VS Code', description: 'Primary code editor', link: '#' },
+        { name: 'VS Code', description: 'Lightweight code editor for web development', link: '#' },
+        { name: 'Visual Studio', description: 'IDE for .NET and enterprise development', link: '#' },
         { name: 'Git', description: 'Version control system', link: '#' },
-        { name: 'visual studio', description: 'Code editor', link: '#' },
-        { name: 'Postman', description: 'API testing tool', link: '#' },
+        { name: 'Postman', description: 'API testing and documentation tool', link: '#' },
       ],
     },
     {
       category: 'Database Tools',
       icon: Database,
       tools: [
-        { name: 'PostgreSQL', description: 'Primary database', link: '#' },
-        { name: 'SQL Server', description: 'Relational database', link: '#' },
-      ],
-    },
-    {
-      category: 'Performance Tools',
-      icon: Zap,
-      tools: [
-        { name: 'Sentry', description: 'Error tracking', link: '#' },
+        { name: 'PostgreSQL', description: 'Primary relational database', link: '#' },
+        { name: 'SQL Server', description: 'Microsoft relational database for enterprise apps', link: '#' },
+        { name: 'SSMS', description: 'SQL Server Management Studio for database administration', link: '#' },
       ],
     },
    {
-  category: 'Deployment & CI/CD Tools',
-  icon: Wrench,
-  tools: [
-    { name: 'Vercel', description: 'Frontend deployment and hosting for the main platform', link: '#' },
-    { name: 'Azure DevOps', description: 'CI/CD pipeline, repository management, and project automation for subprojects', link: '#' },
-    { name: 'GitHub Actions', description: 'Automated workflows for testing and deployment', link: '#' },
-    { name: 'IIS (Microsoft)', description: 'Hosting the pharmacy sub project on a Windows web server', link: 'https://soit-iis.mandela.ac.za/grp-04-10/' },
-  ],
-},
+      category: 'Cloud & Hosting',
+      icon: Cloud,
+      tools: [
+        {
+          name: 'Supabase',
+          description: 'Backend-as-a-Service for authentication and database',
+          link: '#'
+        },
+        {
+          name: 'Vercel',
+          description: 'Frontend hosting and serverless deployment platform',
+          link: '#'
+        },
+        {
+          name: 'Netlify',
+          description: 'Cloud platform for deploying and hosting modern web applications',
+          link: 'https://www.netlify.com/'
+        },
+        {
+          name: 'IIS (Microsoft)',
+          description: 'Windows web server hosting the pharmacy sub project',
+          link: 'https://soit-iis.mandela.ac.za/grp-04-10/'
+        },
+      ],
+    },
+    {
+      category: 'Deployment & CI/CD',
+      icon: Wrench,
+      tools: [
+        { name: 'Azure DevOps', description: 'CI/CD pipeline, repository management, and project automation', link: '#' },
+        { name: 'GitHub Actions', description: 'Automated workflows for testing and deployment', link: '#' },
+      ],
+    },
+    {
+      category: 'Performance & Monitoring',
+      icon: Zap,
+      tools: [
+        { name: 'Sentry', description: 'Real-time error tracking and performance monitoring', link: '#' },
+        { name: 'Chrome DevTools', description: 'Browser debugging and performance profiling', link: '#' },
+        { name: 'Lighthouse', description: 'Web performance and accessibility auditing', link: '#' },
+      ],
+    },
+    {
+      category: 'Security Tools',
+      icon: Shield,
+      tools: [
+        { name: 'Kali Linux', description: 'Penetration testing and security analysis platform', link: '#' },
+        { name: 'Aircrack-ng', description: 'Wireless network security testing suite', link: '#' },
+        { name: 'Wireshark', description: 'Network protocol analyzer for traffic inspection', link: '#' },
+      ],
+    },
   ];
 
   return (
@@ -75,17 +111,17 @@ export default function ToolsPage() {
       {/* Tools Grid */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <p className="text-center text-[#9CA3AF] mb-16 max-w-3xl mx-auto">
+            A curated set of tools that power my development workflow — from coding and database management to deployment, monitoring, and security testing.
+          </p>
+
           <div className="space-y-20">
             {toolCategories.map((category, catIndex) => {
               const Icon = category.icon;
-              // Handle category names with last word in blue
-              let firstPart = category.category;
-              let lastWord = '';
               const words = category.category.split(' ');
-              if (words.length > 1) {
-                lastWord = words[words.length - 1];
-                firstPart = words.slice(0, -1).join(' ') + ' ';
-              }
+              const lastWord = words.length > 1 ? words[words.length - 1] : '';
+              const firstPart = words.length > 1 ? words.slice(0, -1).join(' ') + ' ' : category.category;
 
               return (
                 <div
@@ -98,7 +134,10 @@ export default function ToolsPage() {
                   {/* Divider Line */}
                   {catIndex > 0 && (
                     <div className="flex items-center gap-4 mb-12">
-                      <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+                      <div
+                        className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0"
+                        style={{ width: '100%' }}
+                      />
                     </div>
                   )}
 
@@ -110,7 +149,7 @@ export default function ToolsPage() {
                     </div>
                   </div>
 
-                  {/* Category Heading with Blue Last Word */}
+                  {/* Category Heading */}
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-12 h-12 rounded-lg bg-[#2563EB]/10 flex items-center justify-center flex-shrink-0">
                       <Icon className="text-[#3B82F6]" size={24} />
@@ -132,7 +171,10 @@ export default function ToolsPage() {
                           <h3 className="text-lg font-bold text-[#F9FAFB] group-hover:text-[#2563EB] transition-colors">
                             {tool.name}
                           </h3>
-                          <ExternalLink className="text-[#9CA3AF] group-hover:text-[#2563EB] transition-colors opacity-0 group-hover:opacity-100" size={18} />
+                          <ExternalLink
+                            className="text-[#9CA3AF] group-hover:text-[#2563EB] transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
+                            size={18}
+                          />
                         </div>
                         <p className="text-[#9CA3AF] text-sm">{tool.description}</p>
                       </a>

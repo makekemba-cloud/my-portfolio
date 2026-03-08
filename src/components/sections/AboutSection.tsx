@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, Briefcase, Award, Target } from 'lucide-react';
+import { ArrowRight, Briefcase, Award, Target, ClipboardList, ShieldCheck, BarChart2, Code2 } from 'lucide-react';
 
 export default function AboutSection() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,20 +12,29 @@ export default function AboutSection() {
 
   const achievements = [
     {
-      icon: Briefcase,
-      title: 'Fullstack Expertise',
-      description: '5+ years building production applications with modern tech stacks',
+      icon: Code2,
+      title: 'Full-Stack Development',
+      description:
+        'Design and development of end-to-end web applications using C#, ASP.NET, Next.js, HTML/CSS, and SQL, covering both front-end interfaces and back-end systems.',
     },
     {
-      icon: Award,
-      title: 'Security Focused',
-      description: 'Specialized in implementing secure authentication and data protection',
+      icon: BarChart2,
+      title: 'Data Analysis',
+      description:
+        'Exploratory data analysis, data cleaning, and dataset processing using Python, Pandas, NumPy, and Jupyter Notebook.',
     },
     {
-      icon: Target,
-      title: 'Performance Driven',
-      description: 'Consistent focus on optimization and user experience excellence',
+      icon: ShieldCheck,
+      title: 'Cybersecurity & Ethical Testing',
+      description:
+        'Hands-on experience with penetration testing, vulnerability assessment, and network security using Kali Linux, Aircrack-ng, and SQL injection testing.',
     },
+    {
+      icon: ClipboardList,
+      title: 'Project Management',
+      description:
+        'Agile and Scrum project delivery across the SDLC including planning, documentation, risk management, and workflow coordination.',
+    }
   ];
 
   return (
@@ -55,15 +64,21 @@ export default function AboutSection() {
           <span className="block bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent">Building Better Web</span>
         </h2>
 
-            <p className="text-lg text-[#9CA3AF] mb-6 leading-relaxed">
-              I'm a fullstack developer with a deep passion for creating secure, performant, modern, and user-centric web applications. With expertise across the entire stack, I transform ideas into robust digital solutions.
-            </p>
+          <p className="text-lg text-[#9CA3AF] mb-6 leading-relaxed">
+            I'm a full-stack developer with a strong passion for building secure, performant, and user-focused web applications. 
+            With experience across both front-end and back-end technologies, I enjoy transforming ideas into reliable and scalable digital solutions.
+          </p>
 
-            <p className="text-lg text-[#9CA3AF] mb-12 leading-relaxed">
-              My approach combines technical excellence with a keen eye for design and user experience. Whether building from scratch or optimizing existing systems, I bring a methodical, security-first mindset to every project.
-            </p>
+          <p className="text-lg text-[#9CA3AF] mb-12 leading-relaxed">
+            My approach combines technical precision with a focus on usability and clean design. 
+            Whether developing applications from scratch or improving existing systems, I apply a structured, security-first mindset to ensure performance, maintainability, and a great user experience.
+          </p>
 
-            
+          <p className="text-lg text-[#9CA3AF] mb-12 leading-relaxed">
+            Beyond software development, I bring additional experience in cybersecurity, data analysis, and project management. 
+            I have hands-on exposure to ethical security testing, vulnerability assessment, and data analysis using Python. 
+            I thrive in Agile environments and take pride in writing clean code, maintaining strong documentation, and delivering complete end-to-end solutions.
+          </p>
           </div>
 
           {/* Right Content - Stats Cards */}

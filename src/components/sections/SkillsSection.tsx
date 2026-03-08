@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Globe, Database, Cloud, Lock } from 'lucide-react';
+import { Globe, Database, Cloud, Lock, BarChart2, ShieldCheck } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 
 export default function SkillsSection() {
@@ -11,23 +11,58 @@ export default function SkillsSection() {
     setIsLoaded(true);
   }, []);
 
-  const skillCategories = [
-    {
-      icon: Globe,
-      category: 'Web Development',
-      skills: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'REST APIs'],
-    },
-    {
-      icon: Database,
-      category: 'Database & Backend',
-      skills: ['PostgreSQL', 'Supabase', 'SQL Server', 'C#', 'ASP.NET Core', 'PHP'],
-    },
-    {
-      icon: Cloud,
-      category: 'Cloud & Security',
-      skills: ['Vercel', 'GitHub', 'OAuth', 'JWT', 'Row Level Security'],
-    },
-  ];
+ const skillCategories = [
+  {
+    icon: Globe,
+    category: 'Web Development',
+    skills: [
+      'React.js',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'Tailwind CSS',
+      'HTML',
+      'CSS',
+    ],
+  },
+  {
+    icon: Database,
+    category: 'Backend & Databases',
+    skills: [
+      'Node.js',
+      'REST APIs',
+      'PostgreSQL',
+      'Supabase',
+      'SQL Server',
+      'C#',
+      'ASP.NET Core',
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    category: 'Security & Cloud',
+    skills: [
+      'Vercel',
+      'GitHub',
+      'OAuth',
+      'JWT',
+      'Row Level Security',
+      'Kali Linux',
+      'SQL Injection Testing',
+    ],
+  },
+  {
+    icon: BarChart2,
+    category: 'Data Analysis',
+    skills: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Jupyter Notebook',
+      'Exploratory Data Analysis',
+    ],
+  },
+];
 
   return (
     <section id="skills" className="relative bg-[#000000] py-28 sm:py-36 border-b border-[#111827] overflow-hidden">
@@ -51,7 +86,7 @@ export default function SkillsSection() {
         </div>
 
         {/* Skills Grid - Category Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => {
             const Icon = category.icon;
             return (

@@ -35,15 +35,53 @@ export default function SecurityLabPage() {
         'Activity logging API (/api/auth/log-activity)',
       ],
     },
+    {
+      icon: Shield,
+      name: 'Input Validation & Data Protection',
+      description:
+        'Application-level protections implemented to prevent common web vulnerabilities such as injection attacks and improper data handling.',
+      features: [
+        'Server-side input validation',
+        'Sanitization of user inputs',
+        'Prepared statements to prevent SQL injection',
+        'Secure data handling and validation layers',
+      ],
+    },
+    {
+      icon: Activity,
+      name: 'API Security',
+      description:
+        'Security controls implemented to protect API endpoints from unauthorized access and abuse.',
+      features: [
+        'JWT token verification',
+        'Protected API routes',
+        'Request validation middleware',
+        'Rate limiting concepts',
+      ],
+    },
+    {
+      icon: Shield,
+      name: 'Security Testing',
+      description:
+        'Hands-on testing and vulnerability analysis performed during development to identify and mitigate potential attack vectors.',
+      features: [
+        'SQL injection testing',
+        'Basic penetration testing workflows',
+        'Network analysis with Kali Linux',
+        'Aircrack-ng wireless security testing',
+      ],
+    }
   ];
 
-  const bestPractices = [
+ const bestPractices = [
     'Always validate and sanitize user input',
     'Use HTTPS for all communications',
-    'Implement proper authentication',
-    'Keep dependencies updated',
-    'Use environment variables for secrets',
-    'Implement proper error handling',
+    'Implement proper authentication and authorization',
+    'Use environment variables for sensitive credentials',
+    'Apply the principle of least privilege',
+    'Keep dependencies and libraries updated',
+    'Implement structured logging and monitoring',
+    'Follow OWASP secure coding principles',
   ];
 
   return (

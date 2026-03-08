@@ -3,7 +3,7 @@
 import Navigation from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useState, useEffect } from 'react';
-import { Database, Cloud, Cpu, Lock, CheckCircle2 } from 'lucide-react';
+import { Database, Cloud, Cpu, Lock, CheckCircle2, Activity, ArrowDown } from 'lucide-react';
 
 export default function ArchitecturePage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,24 +23,52 @@ export default function ArchitecturePage() {
     {
       icon: Cloud,
       layer: 'API Layer',
-      description: 'RESTful and GraphQL APIs built with Node.js and Express, fully documented.',
-      technologies: ['Node.js', 'Express', 'GraphQL', 'REST APIs', 'Middleware'],
-      features: ['Authentication', 'Authorization', 'Rate Limiting', 'Caching'],
+      description: 'RESTful APIs built with Next.js API Routes and Node.js/Express, fully documented and secured.',
+      technologies: ['Next.js API Routes', 'Node.js', 'Express', 'REST APIs', 'Middleware'],
+      features: ['JWT Authentication', 'Role-Based Authorization', 'Request Validation', 'Rate Limiting'],
     },
     {
       icon: Database,
       layer: 'Database Layer',
-      description: 'PostgreSQL databases with optimized queries and indexing.',
-      technologies: ['PostgreSQL', 'Indexing'],
-      features: ['Query Optimization', 'Connection Pooling', 'Backup Strategy', 'Monitoring'],
+      description: 'PostgreSQL databases via Supabase with optimized queries, indexing, and connection pooling.',
+      technologies: ['PostgreSQL', 'Supabase', 'Database Indexing', 'Connection Pooling'],
+      features: ['Query Optimization', 'Connection Pooling', 'Automated Backups', 'Database Monitoring'],
     },
     {
-  icon: Lock,
-  layer: 'Security & Access Control',
-  description: 'Secure authentication with Google OAuth and Supabase, role-based access control via middleware, and activity logging for monitoring user actions.',
-  technologies: ['Google OAuth', 'Supabase Auth', 'RBAC Middleware', 'Sentry', 'HTTPS'],
-  features: ['Role-Based Access Control', 'Protected Routes', 'Activity Logging', 'Real-Time Error Monitoring'],
-},
+      icon: Lock,
+      layer: 'Security & Access Control',
+      description:
+        'Secure authentication with Google OAuth and Supabase, role-based access control via middleware, and activity logging for monitoring user actions.',
+      technologies: ['Google OAuth', 'Supabase Auth', 'RBAC Middleware', 'Sentry', 'HTTPS'],
+      features: ['Role-Based Access Control', 'Protected Routes', 'Activity Logging', 'Real-Time Error Monitoring'],
+    },
+    {
+      icon: Activity,
+      layer: 'Monitoring & Observability',
+      description: 'Real-time monitoring and error tracking to ensure system reliability and performance visibility.',
+      technologies: ['Sentry', 'Logging', 'Analytics'],
+      features: ['Real-Time Error Tracking', 'Performance Monitoring', 'Structured Logging', 'Usage Analytics'],
+    },
+    {
+      icon: Cloud,
+      layer: 'Deployment & Infrastructure',
+      description: 'Cloud deployment and continuous integration pipelines ensuring scalability and reliability.',
+      technologies: ['Vercel', 'GitHub Actions', 'Netlify', 'CDN'],
+      features: [
+        'Continuous Integration & Deployment',
+        'Global CDN Delivery',
+        'Environment Configuration',
+        'Automatic Build & Deploy Pipelines',
+      ],
+    },
+  ];
+
+  const flowSteps = [
+    { label: 'User' },
+    { label: 'Frontend (Next.js)' },
+    { label: 'API Layer' },
+    { label: 'Database' },
+    { label: 'Security & Monitoring' },
   ];
 
   return (
@@ -65,20 +93,43 @@ export default function ArchitecturePage() {
         </div>
       </section>
 
+      {/* Architecture Overview Diagram */}
+      <section className="relative bg-[#000000] py-20 border-b border-[#111827]">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 mb-8">
+            <div className="w-2 h-2 bg-[#2563EB] rounded-full animate-pulse" />
+            <span className="text-sm text-[#2563EB] font-semibold">Architecture Overview</span>
+          </div>
+
+          <div className="flex flex-col items-center gap-2">
+            {flowSteps.map((step, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="px-8 py-3 rounded-xl border border-[#1e2538] bg-[#0B0F1A] text-[#F9FAFB] font-medium text-sm min-w-[220px] text-center hover:border-[#2563EB]/50 hover:bg-[#2563EB]/5 transition-all duration-300">
+                  {step.label}
+                </div>
+                {index < flowSteps.length - 1 && (
+                  <ArrowDown className="text-[#2563EB]/50 my-1" size={18} />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Architecture Stack */}
       <section className="relative bg-[#000000] py-28 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <p className="text-center text-[#9CA3AF] mb-16">
+            Layered architecture designed for scalability, maintainability, and security.
+          </p>
+
           <div className="space-y-16">
             {architectureLayers.map((item, index) => {
               const Icon = item.icon;
-              // Handle layer names with last word in blue
-              let firstPart = item.layer;
-              let lastWord = '';
               const words = item.layer.split(' ');
-              if (words.length > 1) {
-                lastWord = words[words.length - 1];
-                firstPart = words.slice(0, -1).join(' ') + ' ';
-              }
+              const lastWord = words.length > 1 ? words[words.length - 1] : '';
+              const firstPart = words.length > 1 ? words.slice(0, -1).join(' ') + ' ' : item.layer;
 
               return (
                 <div
@@ -88,14 +139,15 @@ export default function ArchitecturePage() {
                   }`}
                   style={{ transitionDelay: isLoaded ? `${index * 100}ms` : '0ms' }}
                 >
-                  {/* Divider Line */}
                   {index > 0 && (
                     <div className="flex items-center gap-4 mb-12">
-                      <div className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0" style={{ width: '100%' }} />
+                      <div
+                        className="h-px bg-gradient-to-r from-[#2563EB]/0 via-[#2563EB]/50 to-[#2563EB]/0"
+                        style={{ width: '100%' }}
+                      />
                     </div>
                   )}
 
-                  {/* Layer Badge */}
                   <div className="flex justify-center mb-8">
                     <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#2563EB]/30 bg-[#2563EB]/5 cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
                       <div className="w-1.5 h-1.5 bg-[#2563EB] rounded-full animate-pulse" />
@@ -104,7 +156,7 @@ export default function ArchitecturePage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                    {/* Left side - Layer info */}
+                    {/* Left — Layer info */}
                     <div className="order-2 md:order-1">
                       <div className="p-8 rounded-xl border border-[#111827] bg-[#0B0F1A]/40 hover:border-[#2563EB]/50 transition-all duration-300">
                         <div className="flex items-center gap-4 mb-4">
@@ -117,8 +169,6 @@ export default function ArchitecturePage() {
                           </h3>
                         </div>
                         <p className="text-[#9CA3AF] mb-6">{item.description}</p>
-
-                        {/* Technologies */}
                         <div>
                           <p className="text-sm font-semibold text-[#F9FAFB] mb-3">Technologies</p>
                           <div className="flex flex-wrap gap-2">
@@ -135,7 +185,7 @@ export default function ArchitecturePage() {
                       </div>
                     </div>
 
-                    {/* Right side - Features */}
+                    {/* Right — Features */}
                     <div className="order-1 md:order-2">
                       <div className="space-y-4">
                         {item.features.map((feature, i) => (

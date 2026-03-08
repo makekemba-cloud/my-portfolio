@@ -320,9 +320,8 @@ export default function HeroSection() {
         </div>
         
         <div className={`transition-all duration-1000 delay-200 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed max-w-2xl">
-                I build production-grade fullstack applications with a focus on security,
-                performance, and user experience. Specializing in Next.js, React, Node.js, and Supabase.
+             <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed max-w-2xl">
+                I build secure, scalable, modern full-stack applications focused on performance, reliability, and great user experience — turning complex ideas into practical digital solutions.
               </p>
         </div>
 
