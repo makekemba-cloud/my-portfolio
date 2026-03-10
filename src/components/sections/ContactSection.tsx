@@ -265,7 +265,7 @@ export default function ContactSection() {
                   Let's discuss your project requirements and create something amazing together.
                 </p>
                 <a href="#" className="inline-flex items-center gap-2 text-[#2563EB] font-semibold hover:text-[#3B82F6] transition-colors duration-300">
-                  Schedule a call <ArrowRight size={18} />
+                  Schedule an appointment <ArrowRight size={18} />
                 </a>
               </div>
             </div>
