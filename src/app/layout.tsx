@@ -13,6 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.makekembavhutali.co.za"), // ✅ ADD THIS
+
   title: "Makekemba Vhutali | Full-Stack Software Developer",
   description:
     "Makekemba Vhutali is a full-stack software developer from South Africa specializing in secure, scalable web applications using Next.js, TypeScript, C#, and modern cloud technologies.",
@@ -83,9 +85,28 @@ export default function RootLayout({
                 alternateName: "Makekemba Vhutali Developer",
                 jobTitle: "Full-Stack Software Developer",
                 url: "https://makekembavhutali.co.za",
-                image:
-                  "https://makekembavhutali.co.za/images/makekemba-vhutali-software-developer.jpg",
+                image: "https://makekembavhutali.co.za/images/makekemba-vhutali-software-developer.jpg",
                 inLanguage: "en-ZA",
+
+                knowsAbout: [
+                  "Full Stack Development",
+                  "Next.js",
+                  "TypeScript",
+                  "C#",
+                  "Cybersecurity",
+                  "Web Application Security",
+                  "Software Architecture"
+                ],
+
+                alumniOf: {
+                  "@type": "EducationalOrganization",
+                  "name": "Nelson Mandela University"
+                },
+
+                address: {
+                  "@type": "PostalAddress",
+                  "addressCountry": "ZA"
+                },
 
                 sameAs: [
                   "https://github.com/makekemba-cloud",
@@ -115,13 +136,6 @@ export default function RootLayout({
                   areaServed: "ZA",
                   availableLanguage: "English"
                 }
-              },
-
-              {
-                "@type": "WebSite",
-                name: "Makekemba Vhutali Portfolio",
-                url: "https://makekembavhutali.co.za",
-                inLanguage: "en-ZA"
               }
             ]),
           }}

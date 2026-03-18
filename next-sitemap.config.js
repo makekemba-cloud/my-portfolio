@@ -1,5 +1,13 @@
 module.exports = {
   siteUrl: 'https://www.makekembavhutali.co.za',
   generateRobotsTxt: true,
-  sitemapSize: 5000,
+
+  exclude: [
+    '/login',
+    '/dashboard',
+    '/messages',
+    '/posts',
+    '/api/*'
+  ],
+  
 };
