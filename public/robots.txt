@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.makekembavhutali.co.za
+
+# Sitemaps
+Sitemap: https://www.makekembavhutali.co.za/sitemap.xml
