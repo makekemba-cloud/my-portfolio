@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -15,7 +16,8 @@
     "bcryptjs": "^3.0.3",
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.576.0",
-    "next": "16.1.6",
+    "next": "^16.2.0",
+    "next-sitemap": "^4.2.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "zod": "^4.3.6"
