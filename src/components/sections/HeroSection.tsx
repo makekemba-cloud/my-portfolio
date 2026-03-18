@@ -297,7 +297,7 @@ export default function HeroSection() {
               <div className="absolute inset-3 rounded-full border border-[#2563EB]/30 animate-pulse" style={{ animationDelay: '0.5s' }} />
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#2563EB] shadow-2xl shadow-[#2563EB]/50">
                 <Image
-                  src="/images/Screenshot 2026-03-03 101434.png"
+                  src="/images/makekemba-vhutali-software-developer.png"
                   alt="Makekemba Vhutali, Full‑Stack Software Developer"
                   fill
                   sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
