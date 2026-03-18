@@ -143,7 +143,7 @@ export default function Footer() {
           <p className="text-xs text-[#6B7280]">
             Designed & built by{' '}
             <a
-              href="https://mmusocode.netlify.app/"
+              href="https://mmusocode.co.za/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#2563EB] hover:text-[#3B82F6] transition-colors duration-300 font-semibold"
