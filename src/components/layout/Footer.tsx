@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Mail, ArrowRight, MessageCircle, Facebook, Instagram } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, ArrowRight, MessageCircle, Facebook, Instagram, Music2, YoutubeIcon } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,6 +14,8 @@ export default function Footer() {
     { name: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/27729473009', color: 'hover:text-green-500' },
     { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/Mmuso.0', color: 'hover:text-blue-600' },
     { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/mmuso.0/', color: 'hover:text-pink-500' },
+    { name: 'YouTube',   icon: YoutubeIcon,  href: 'https://www.youtube.com/@makekembavhutali6820', color: 'hover:text-red-600'   },
+    { name: 'TikTok',    icon: Music2 ,   href: 'https://www.tiktok.com/@makekemba_vhutali',      color: 'hover:text-black'     },
   ];
 
   const quickLinks = [

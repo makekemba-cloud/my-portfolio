@@ -298,7 +298,8 @@ export default function HeroSection() {
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#2563EB] shadow-2xl shadow-[#2563EB]/50">
                 <Image
                   src="/images/Screenshot 2026-03-03 101434.png"
-                  alt="Profile" fill
+                  alt="Makekemba Vhutali, Full‑Stack Software Developer"
+                  fill
                   sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
                   className="object-cover" priority
                 />
@@ -309,20 +310,30 @@ export default function HeroSection() {
           {/* Headline + Subheading — right on desktop, centered on mobile */}
           <div className="flex flex-col items-center text-center">
             <div className={`mb-6 transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              {/* === UPDATED HEADLINE with your name === */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
-                <span className="block text-[#F9FAFB] mb-2">Fullstack Developer</span>
+                <span className="block text-[#F9FAFB] mb-2">Makekemba Vhutali</span>
                 <span className="block bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent leading-tight">
-                  Crafting Secure Web Solutions
+                  Full‑Stack Developer
                 </span>
               </h1>
             </div>
           </div>
         </div>
         
+        {/* === UPDATED PARAGRAPH with Mmuso Code mention === */}
         <div className={`transition-all duration-1000 delay-200 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-             <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed max-w-2xl">
-                I build secure, scalable, modern full-stack applications focused on performance, reliability, and great user experience — turning complex ideas into practical digital solutions.
-              </p>
+          <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed max-w-2xl">
+            I'm Makekemba Vhutali, a full‑stack developer from South Africa. I build secure, scalable, modern applications — and I'm the founder of{' '}
+            <a 
+              href="https://mmusocode.co.za" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#2563EB] hover:underline"
+            >
+              Mmuso Code
+            </a>.
+          </p>
         </div>
 
         {/* CTA Buttons */}
@@ -342,7 +353,7 @@ export default function HeroSection() {
           </button>
         </div>
 
-        {/* Social Links */}
+        {/* Social Links (GitHub, LinkedIn — you can add YouTube/TikTok here if you want) */}
         <div className={`flex justify-center gap-4 mb-12 transition-all duration-1000 delay-400 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <a href="https://github.com/makekemba-cloud" target="_blank" rel="noopener noreferrer"
             className="p-3 rounded-lg border border-[#1f2937] bg-[#000000]/40 backdrop-blur-sm text-[#9CA3AF] hover:text-[#2563EB] hover:border-[#2563EB] hover:bg-[#2563EB]/5 transition-all duration-300" title="GitHub">

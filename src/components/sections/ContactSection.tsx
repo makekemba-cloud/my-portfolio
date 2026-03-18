@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Mail, Linkedin, Github, Twitter, ArrowRight, Send, MessageCircle, Facebook, Instagram } from 'lucide-react';
+import { Mail, Linkedin, Github, Twitter, ArrowRight, Send, MessageCircle, Facebook, Instagram, YoutubeIcon, Music2 } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -85,6 +85,8 @@ export default function ContactSection() {
     { name: 'WhatsApp',  icon: MessageCircle,  href: 'https://wa.me/27729473009',                 color: 'hover:text-green-500' },
     { name: 'Facebook',  icon: Facebook,       href: 'https://www.facebook.com/Mmuso.0',          color: 'hover:text-blue-600'  },
     { name: 'Instagram', icon: Instagram,      href: 'https://www.instagram.com/mmuso.0/',        color: 'hover:text-pink-500'  },
+    { name: 'YouTube',   icon: YoutubeIcon,  href: 'https://www.youtube.com/@makekembavhutali6820', color: 'hover:text-red-600'   },
+    { name: 'TikTok',    icon: Music2 ,   href: 'https://www.tiktok.com/@makekemba_vhutali',      color: 'hover:text-black'     },
   ];
 
   const inputClass =
@@ -211,7 +213,7 @@ export default function ContactSection() {
               {/* Social links */}
               <div>
                 <h3 className="text-2xl font-bold text-[#F9FAFB] mb-6">Connect</h3>
-                <div className="grid grid-cols-7 gap-3">
+                <div className="grid grid-cols-9 gap-3">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
                     return (
