@@ -26,7 +26,12 @@ export const metadata: Metadata = {
     "C# developer",
     "web application security",
     "Mmuso Code",
-    "mmusocode"
+    "mmusocode",
+    "software developer portfolio",
+    "modern web development",
+    "secure web applications",
+    "software architecture",
+    "cybersecurity for developers",
   ],
   authors: [{ name: "Makekemba Vhutali" }],
 
