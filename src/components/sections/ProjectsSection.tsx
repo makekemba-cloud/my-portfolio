@@ -29,7 +29,7 @@ export default function ProjectsSection() {
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
       image: '/images/Screenshot 2026-03-06 155706.png',
       github: 'https://github.com/makekemba-cloud',
-      live: 'https://makekembav-portfolio.vercel.app/',
+      live: 'https://makekembavhutali.co.za/',
       inProduction: false,
     },
     {

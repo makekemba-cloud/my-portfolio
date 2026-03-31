@@ -148,7 +148,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#2563EB] hover:text-[#3B82F6] transition-colors duration-300 font-semibold"
             >
-              MmusoCode
+              Mmuso Code
             </a>
           </p>
         </div>

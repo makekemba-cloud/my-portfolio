@@ -42,7 +42,7 @@ export default function ProjectsPage() {
       category: 'fullstack',
       image: '/images/Screenshot 2026-03-06 155706.png',
       github: 'https://github.com/makekemba-cloud',
-      live: 'https://makekembav-portfolio.vercel.app/',
+      live: 'https://makekembavhutali.co.za/',
       year: '2026',
       inProduction: false,
       metrics: { Design: 'Custom', Deploy: 'Vercel', Perf: '98+' },
