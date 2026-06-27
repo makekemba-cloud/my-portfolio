@@ -22,14 +22,14 @@ export default function ProjectsSection() {
       live: 'https://www.bigsmallinsights.co.za/',
       inProduction: false,
     },
-    {
-      title: 'Developer Portfolio',
+      {
+      title: 'Mmuso Code',
       description:
-        'A modern, responsive portfolio built with Next.js to showcase projects, technical skills, and development experience. Features animated project cards, dynamic filtering, and sections for blogs and mini apps.',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-      image: '/images/Screenshot 2026-03-06 155706.png',
-      github: 'https://github.com/makekemba-cloud',
-      live: 'https://makekembavhutali.co.za/',
+        'A modern software development company website showcasing digital services, custom software solutions, and innovative technology-driven products.',
+      technologies: ['Vue.js','Vite', 'React', 'TypeScript', 'Tailwind CSS' ],
+      image: '/images/mmusocode.png',
+      github: null,
+      live: 'https://www.mmusocode.co.za/',
       inProduction: false,
     },
     {
@@ -40,7 +40,7 @@ export default function ProjectsSection() {
       image: '/images/Screenshot 2026-03-06 155837.png',
       github: null,
       live: 'https://sibalekananiac.co.za',
-      inProduction: true,
+      inProduction: false,
     },
   ];
 

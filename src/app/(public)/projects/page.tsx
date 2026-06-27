@@ -19,49 +19,105 @@ export default function ProjectsPage() {
       id: 1,
       title: 'BigSmallInsights',
       description:
-        'A student support platform connecting learners with mentors, tutors, and educational resources. Features Google OAuth, role-based access control, Sentry error monitoring, and a custom activity logging API.',
+        'A student support platform that connects learners with mentors, tutors, and educational resources through a centralized digital experience.',
       longDescription:
-        'BigSmallInsights is a full-stack web platform designed to help students access academic support, mentorship, and structured learning resources in a single centralized system. The platform connects students with mentors and tutors while providing tools that support collaboration and academic guidance. Authentication is handled via Google OAuth with middleware-based RBAC protecting all routes. Sentry is integrated for real-time production error monitoring, and a custom /api/auth/log-activity endpoint tracks important user actions for improved system visibility. The platform demonstrates real-world SaaS-level practices: authentication systems, middleware authorization, monitoring, and database-driven architecture.',
-      technologies: ['Next.js', 'TypeScript', 'Supabase', 'Google OAuth', 'Sentry', 'Tailwind CSS', 'Vercel'],
+        'BigSmallInsights was developed to help students access academic support, mentorship opportunities, and structured learning resources in one place. The platform streamlines collaboration between learners, mentors, and tutors while providing an intuitive and accessible user experience. It focuses on empowering students through guidance, educational tools, and community-driven support.',
+      technologies: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Vercel'],
       category: 'fullstack',
       image: '/images/Screenshot 2026-03-06 155732.png',
       github: null,
       live: 'https://www.bigsmallinsights.co.za/',
       year: '2026',
       inProduction: false,
-      metrics: { Auth: 'OAuth', Monitoring: 'Sentry', Roles: 'RBAC' },
+      metrics: { Users: 'Growing', Access: 'Role-Based', Platform: 'Live' },
     },
+
     {
       id: 2,
       title: 'Developer Portfolio',
       description:
-        'A modern, responsive developer portfolio built with Next.js to showcase projects, technical skills, and development experience. Features animated cards, dynamic project filtering, blog section, and mini apps.',
+        'A professional portfolio showcasing projects, technical expertise, and development experience through a modern and responsive interface.',
       longDescription:
-        'This portfolio is the central hub for my development work — built not just to look good, but to demonstrate frontend and full-stack skills in practice. Designed with a dark, professional aesthetic and smooth entry animations. The Projects section dynamically filters by category and renders project cards with tech stacks, metrics, GitHub links, and live demos. Built with component-based architecture for scalability, optimized images, SEO metadata, and deployed on Vercel with continuous deployment via GitHub.',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Lucide React', 'Vercel'],
+        'This portfolio serves as the central hub for my work, highlighting projects, skills, and experience across web development. Built with a focus on performance, responsiveness, and user experience, it provides visitors with an interactive way to explore my work, technical capabilities, and ongoing projects.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
       category: 'fullstack',
       image: '/images/Screenshot 2026-03-06 155706.png',
       github: 'https://github.com/makekemba-cloud',
       live: 'https://makekembavhutali.co.za/',
       year: '2026',
       inProduction: false,
-      metrics: { Design: 'Custom', Deploy: 'Vercel', Perf: '98+' },
+      metrics: { Design: 'Custom', Performance: 'Optimized', Status: 'Live' },
     },
-     {
+
+    {
       id: 3,
       title: 'Sibaleka Nani Athletic Club (SNAC) System',
       description:
-        'A full-stack athletic club management platform for Sibaleka Nani Athletic Club. Handles member registration, admin approvals, athlete profiles, and club operations through a centralized, secure dashboard.',
+        'A digital membership and club management platform that streamlines athlete registration, member administration, and club operations.',
       longDescription:
-        'The SNAC system replaces manual spreadsheets and phone-based admin with a fully digital membership platform. Members register and complete detailed athlete profiles including SA ID, race demographics, athlete category, experience level, residential address, and next-of-kin information. A PostgreSQL trigger auto-generates unique membership numbers (SNAC-YYYY-XXXXX) on signup. Admins approve, suspend, or manage all members with a full audit trail. Security is enforced at three layers: Supabase Auth, PostgreSQL Row Level Security policies, and Next.js middleware — not just in the UI.',
-      technologies: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL', 'RLS', 'Tailwind CSS', 'Vercel'],
+        'The SNAC system was developed to modernize club administration by replacing manual processes with a centralized online platform. Athletes can register, manage their profiles, and interact with the club digitally, while administrators can efficiently oversee memberships and day-to-day operations. The platform improves efficiency, accessibility, and overall member experience.',
+      technologies: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Vercel'],
       category: 'fullstack',
       image: '/images/Screenshot 2026-03-06 155837.png',
       github: null,
       live: 'https://sibalekananiac.co.za',
       year: '2026',
+      inProduction: false,
+      metrics: { Members: 'Active', Operations: 'Digital', Status: 'Live' },
+    },
+
+    {
+      id: 4,
+      title: 'Let Us Heal',
+      description:
+        'A youth-focused non-profit platform dedicated to supporting young people through educational, emotional, financial, and social development initiatives.',
+      longDescription:
+        'Let Us Heal is a community-driven platform designed to empower and uplift young people facing various life challenges. The website provides access to information, support programs, opportunities, and resources that encourage personal growth and development. The project focuses on creating a welcoming digital space where youth can find guidance and support on their journey toward achieving their full potential.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+      category: 'fullstack',
+      image: '/images/letusheal.png',
+      github: null,
+      live: 'https://www.letusheal.co.za/',
+      year: '2026',
       inProduction: true,
-      metrics: { Members: 'Live', Security: 'RLS', Stack: 'Full' },
+      metrics: { Impact: 'Youth Focused', Access: 'Community', Status: 'Live' },
+    },
+
+    {
+      id: 5,
+      title: 'Sizofakulwazi Foundation',
+      description:
+        'A non-profit organization website focused on community upliftment, education, empowerment, and sustainable social impact.',
+      longDescription:
+        'The Sizofakulwazi Foundation website was developed to showcase the foundation’s mission, programs, and community initiatives. The platform highlights projects aimed at supporting vulnerable individuals through education, vocational training, food assistance, and empowerment opportunities. Built with accessibility and engagement in mind, the website helps the organization communicate its impact and connect with donors, volunteers, and beneficiaries.',
+      technologies: ['Next.js', 'React', 'TypeScript'],
+      category: 'frontend',
+      image: '/images/sizofakulwazi.png',
+      github: null,
+      live: 'https://sizofakulwazi-foundation.vercel.app/',
+      year: '2026',
+      inProduction: true,
+      metrics: { Mission: 'Community', Programs: 'Multiple', Status: 'Live' },
+    },
+    {
+      id: 6,
+      title: 'Mmuso Code',
+      description:
+        'A modern software development company website showcasing digital services, custom software solutions, and innovative technology-driven products.',
+      longDescription:
+        'Mmuso Code is a professional business website developed to establish a strong digital presence for a modern software development company. The platform highlights the company’s services, expertise, and commitment to building scalable digital solutions for businesses, startups, and growing brands. Designed with a clean and professional user experience, the website communicates the company’s vision of transforming ideas into high-quality digital products while emphasizing innovation, performance, and long-term growth.',
+      technologies: ['Vue.js','Vite', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+      category: 'frontend',
+      image: '/images/mmusocode.png',
+      github: null,
+      live: 'https://www.mmusocode.co.za/',
+      year: '2026',
+      inProduction: false,
+      metrics: {
+        Industry: 'Software',
+        Design: 'Modern',
+        Status: 'Live',
+      },
     },
   ];
 
@@ -122,7 +178,7 @@ export default function ProjectsPage() {
       {/* ── Projects Grid ─────────────────────────────────────── */}
       <section className="relative bg-[#000000] py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20">
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
@@ -151,7 +207,7 @@ export default function ProjectsPage() {
                       </span>
                       <Wrench size={13} className="text-[#000000] shrink-0" />
                       <span className="text-[#000000] text-xs font-bold tracking-widest uppercase">
-                        Currently in Production
+                        Currently in Development
                       </span>
                       <Wrench size={13} className="text-[#000000] shrink-0" />
                     </div>
