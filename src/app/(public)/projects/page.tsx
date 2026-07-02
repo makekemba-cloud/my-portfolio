@@ -178,7 +178,7 @@ export default function ProjectsPage() {
       {/* ── Projects Grid ─────────────────────────────────────── */}
       <section className="relative bg-[#000000] py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
