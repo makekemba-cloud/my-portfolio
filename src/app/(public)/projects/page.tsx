@@ -119,6 +119,26 @@ export default function ProjectsPage() {
         Status: 'Live',
       },
     },
+      {
+      id: 7,
+      title: 'Mathinyani Plumbing Services',
+      description:
+        'A professional, modern website for Mathinyani Plumbing Services & Maintenance – featuring lead generation, branded emails, and a premium design.',
+      longDescription:
+        'Mathinyani Plumbing Services is a fully responsive website built for a professional plumbing and maintenance company. The platform features a sleek, modern design with a custom dark blue, water blue, and grey theme. It includes a fully functional contact form integrated with Resend for automated email notifications, a quote request system, project gallery, and comprehensive service listings. The website is optimised for lead generation with clear calls-to-action, WhatsApp integration, and a user-friendly interface that reflects the company\'s commitment to reliability and quality workmanship. Built with Next.js and deployed on Vercel, the site is fast, secure, and easily maintainable.',
+      technologies: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Resend', 'Vercel'],
+      category: 'fullstack',
+      image: '/images/mathinyani-plumbing.png',
+      github: null,
+      live: 'https://mathinyaniplumbing.co.za/',
+      year: '2026',
+      inProduction: false,
+      metrics: {
+        Type: 'Client Project',
+        Industry: 'Plumbing & Maintenance',
+        Status: 'Live',
+      },
+    },
   ];
 
   const categories = [
