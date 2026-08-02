@@ -79,7 +79,7 @@ export default function ProjectsPage() {
       github: null,
       live: 'https://www.letusheal.co.za/',
       year: '2026',
-      inProduction: true,
+      inProduction: false,
       metrics: { Impact: 'Youth Focused', Access: 'Community', Status: 'Live' },
     },
 
@@ -94,9 +94,9 @@ export default function ProjectsPage() {
       category: 'frontend',
       image: '/images/sizofakulwazi.png',
       github: null,
-      live: 'https://sizofakulwazi-foundation.vercel.app/',
+      live: 'https://www.sizofakulwazifoundation.org.za/',
       year: '2026',
-      inProduction: true,
+      inProduction: false,
       metrics: { Mission: 'Community', Programs: 'Multiple', Status: 'Live' },
     },
     {
