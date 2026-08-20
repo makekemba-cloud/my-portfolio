@@ -324,15 +324,7 @@ export default function HeroSection() {
         {/* === UPDATED PARAGRAPH with Mmuso Code mention === */}
         <div className={`transition-all duration-1000 delay-200 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed max-w-2xl">
-            I'm Makekemba Vhutali, a full‑stack developer from South Africa. I build secure, scalable, modern applications — and I'm the founder of{' '}
-            <a 
-              href="https://mmusocode.co.za" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-[#2563EB] hover:underline"
-            >
-              Mmuso Code
-            </a>.
+            I'm Makekemba Vhutali, a full‑stack developer from South Africa. I build secure, scalable, modern applications.
           </p>
         </div>
 

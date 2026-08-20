@@ -14,7 +14,24 @@ export default function ProjectsPage() {
   }, []);
 
   const projects = [
-   
+    // ─── LinkMarket (NEW) ──────────────────────────────────────
+    {
+      id: 0,
+      title: 'LinkMarket',
+      description:
+        'A modern South African online marketplace connecting buyers and sellers with secure transactions, real-time messaging, and a seamless user experience.',
+      longDescription:
+        'LinkMarket is a full-featured marketplace platform built for South Africa. It enables users to buy and sell products, manage listings, chat with sellers, and complete orders – all in one place. The platform features seller dashboards, business profiles, service listings, advanced search with filters, real-time notifications via Pusher, and a fully integrated cart and checkout system. Built with Next.js, TypeScript, and MongoDB, LinkMarket is secure, scalable, and designed to grow with local businesses.',
+      technologies: ['Next.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Pusher', 'Vercel'],
+      category: 'fullstack',
+      image: '/images/linkmarket.png',
+      github: null,
+      live: 'https://www.linkmarket.co.za/',
+      year: '2025',
+      inProduction: false,
+      metrics: { Users: 'Active', Listings: 'Growing', Status: 'Live' },
+    },
+
     {
       id: 1,
       title: 'BigSmallInsights',
@@ -91,7 +108,7 @@ export default function ProjectsPage() {
       longDescription:
         'The Sizofakulwazi Foundation website was developed to showcase the foundation’s mission, programs, and community initiatives. The platform highlights projects aimed at supporting vulnerable individuals through education, vocational training, food assistance, and empowerment opportunities. Built with accessibility and engagement in mind, the website helps the organization communicate its impact and connect with donors, volunteers, and beneficiaries.',
       technologies: ['Next.js', 'React', 'TypeScript'],
-      category: 'frontend',
+      category: 'fullstack',
       image: '/images/sizofakulwazi.png',
       github: null,
       live: 'https://www.sizofakulwazifoundation.org.za/',
@@ -107,7 +124,7 @@ export default function ProjectsPage() {
       longDescription:
         'Mmuso Code is a professional business website developed to establish a strong digital presence for a modern software development company. The platform highlights the company’s services, expertise, and commitment to building scalable digital solutions for businesses, startups, and growing brands. Designed with a clean and professional user experience, the website communicates the company’s vision of transforming ideas into high-quality digital products while emphasizing innovation, performance, and long-term growth.',
       technologies: ['Vue.js','Vite', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-      category: 'frontend',
+      category: 'fullstack',
       image: '/images/mmusocode.png',
       github: null,
       live: 'https://www.mmusocode.co.za/',
@@ -119,7 +136,7 @@ export default function ProjectsPage() {
         Status: 'Live',
       },
     },
-      {
+    {
       id: 7,
       title: 'Mathinyani Plumbing Services',
       description:
@@ -164,22 +181,22 @@ export default function ProjectsPage() {
           <div className="absolute -bottom-1/4 right-0 w-96 h-96 bg-[#3B82F6]/15 rounded-full blur-3xl opacity-50" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-          <h1 className="text-6xl sm:text-7xl font-bold text-[#F9FAFB] mb-6">My Projects</h1>
-          <p className="text-xl text-[#9CA3AF] max-w-2xl mx-auto">
-            Real-world platforms built with modern full-stack technologies — from athletic club management to student support systems
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-[#F9FAFB] mb-6">My Projects</h1>
+          <p className="text-base sm:text-xl text-[#9CA3AF] max-w-2xl mx-auto">
+            Real-world platforms built with modern full-stack technologies from marketplaces to community systems
           </p>
         </div>
       </section>
 
       {/* ── Filter ────────────────────────────────────────────── */}
-      <section className="relative bg-[#000000] py-12 border-b border-[#111827]">
+      <section className="relative bg-[#000000] py-8 sm:py-12 border-b border-[#111827]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
             {categories.map((category) => (
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 ${
                   selectedCategory === category.value
                     ? 'bg-[#2563EB] text-white shadow-lg shadow-[#2563EB]/30'
                     : 'border border-[#111827] text-[#9CA3AF] hover:border-[#2563EB] hover:text-[#2563EB]'
@@ -189,16 +206,16 @@ export default function ProjectsPage() {
               </button>
             ))}
           </div>
-          <p className="text-center text-[#9CA3AF] mt-6">
+          <p className="text-center text-[#9CA3AF] mt-4 sm:mt-6 text-sm sm:text-base">
             Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
           </p>
         </div>
       </section>
 
       {/* ── Projects Grid ─────────────────────────────────────── */}
-      <section className="relative bg-[#000000] py-28">
+      <section className="relative bg-[#000000] py-16 sm:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
@@ -208,7 +225,7 @@ export default function ProjectsPage() {
                 style={{ transitionDelay: isLoaded ? `${index * 100}ms` : '0ms' }}
               >
                 {/* Screenshot image */}
-                <div className="h-56 overflow-hidden bg-[#0B0F1A] relative">
+                <div className="h-48 sm:h-56 overflow-hidden bg-[#0B0F1A] relative">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -227,7 +244,7 @@ export default function ProjectsPage() {
                       </span>
                       <Wrench size={13} className="text-[#000000] shrink-0" />
                       <span className="text-[#000000] text-xs font-bold tracking-widest uppercase">
-                        Currently in Development
+                        In Development
                       </span>
                       <Wrench size={13} className="text-[#000000] shrink-0" />
                     </div>
@@ -235,21 +252,21 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-[#F9FAFB] mb-3">{project.title}</h3>
+                <div className="p-5 sm:p-8 flex flex-col flex-grow">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#F9FAFB] mb-3">{project.title}</h3>
 
                   {/* Short description */}
-                  <p className="text-[#9CA3AF] text-sm leading-relaxed mb-4">{project.description}</p>
+                  <p className="text-[#9CA3AF] text-xs sm:text-sm leading-relaxed mb-4">{project.description}</p>
 
                   {/* Long description */}
                   <p className="text-[#6B7280] text-xs leading-relaxed mb-6 flex-grow">{project.longDescription}</p>
 
                   {/* Metrics */}
-                  <div className="mb-6 flex gap-6 py-4 border-y border-[#111827]">
+                  <div className="mb-6 flex flex-wrap gap-4 sm:gap-6 py-4 border-y border-[#111827]">
                     {Object.entries(project.metrics).map(([key, value]) => (
-                      <div key={key}>
-                        <p className="text-xs text-[#6B7280] uppercase tracking-wider mb-1">{key}</p>
-                        <p className="text-base font-bold text-[#2563EB]">{value}</p>
+                      <div key={key} className="flex-1 min-w-[60px]">
+                        <p className="text-[10px] sm:text-xs text-[#6B7280] uppercase tracking-wider mb-1">{key}</p>
+                        <p className="text-sm sm:text-base font-bold text-[#2563EB]">{value}</p>
                       </div>
                     ))}
                   </div>
@@ -259,7 +276,7 @@ export default function ProjectsPage() {
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-xs rounded-full bg-[#2563EB]/10 text-[#3B82F6] border border-[#2563EB]/20 font-medium"
+                        className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs rounded-full bg-[#2563EB]/10 text-[#3B82F6] border border-[#2563EB]/20 font-medium"
                       >
                         {tech}
                       </span>
@@ -267,7 +284,7 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-3 pt-4 border-t border-[#111827]">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#111827]">
                     {project.github && (
                       <a
                         href={project.github}
@@ -296,13 +313,13 @@ export default function ProjectsPage() {
 
           {/* CTA */}
           <div className="text-center pt-12 border-t border-[#111827]">
-            <p className="text-[#9CA3AF] text-lg mb-8 font-medium">Have an interesting project in mind?</p>
+            <p className="text-[#9CA3AF] text-base sm:text-lg mb-8 font-medium">Have an interesting project in mind?</p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-lg bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30"
+              className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-all duration-300 shadow-lg shadow-[#2563EB]/30"
             >
               Start a Conversation
-              <ArrowRight size={22} />
+              <ArrowRight size={20} className="sm:w-[22px] sm:h-[22px]" />
             </a>
           </div>
         </div>
