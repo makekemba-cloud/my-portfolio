@@ -27,7 +27,7 @@ export default function ProjectsPage() {
       image: '/images/linkmarket.png',
       github: null,
       live: 'https://www.linkmarket.co.za/',
-      year: '2025',
+      year: '2026',
       inProduction: false,
       metrics: { Users: 'Active', Listings: 'Growing', Status: 'Live' },
     },
